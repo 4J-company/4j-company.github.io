@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - model-renderer</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        .aspect-w-16 {
+            position: relative;
+            padding-bottom: 56.25%;  
+        }
+        .aspect-w-16 > * {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+        .aspect-w-16 img {
+            object-fit: cover;
+        }
+        .mermaid {
+            background: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+         
+        .hover-scale {
+            transition: transform 0.2s ease-in-out;
+        }
+        .hover-scale:hover {
+            transform: scale(1.02);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: #000000;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+         
+        .nav-auto-hide {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+            transform: translateY(0);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            opacity: 1;
+            will-change: transform, opacity;
+            background-color: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-auto-hide.hidden {
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .nav-trigger-area {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            z-index: 45;
+        }
+
+         
+        .nav-dropdown {
+            position: relative;
+            z-index: 51;
+        }
+
+        .nav-dropdown-content {
+            position: absolute;
+            left: 0;
+            margin-top: 0.5rem;
+            width: 12rem;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 0.375rem;
+            box-shadow: 0 4px 15px -1px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.2s ease;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-dropdown:hover .nav-dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .nav-dropdown-item {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            color: #000000;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .nav-dropdown-item:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: #000000;
+        }
+        
+        .logo-container {
+            height: 32px;
+            width: auto;
+            margin-right: 0.5rem;
+        }
+        
+        .logo-container img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+        
+         
+        body {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        
+        .high-contrast-card {
+            background: #ffffff;
+            border: 1px solid #000000;
+            box-shadow: 3px 3px 0 #000000;
+            transition: all 0.2s ease;
+        }
+        
+        .high-contrast-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0 #000000;
+        }
+        
+        .high-contrast-btn {
+            background: #000000;
+            color: #ffffff;
+            border: 1px solid #000000;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        
+        .high-contrast-btn:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+        
+         
+        .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+            color: #000000 !important;
+            margin-top: 0 !important;
+            margin-bottom: 0.5em !important;
+            font-weight: 600 !important;
+        }
+        
+        .prose h3 {
+            font-size: 1.5rem !important;
+        }
+        
+        .prose h4 {
+            font-size: 1.25rem !important;
+        }
+        
+         
+        .prose .bg-gradient-to-r h3 {
+            margin-top: 0 !important;
+            margin-bottom: 0.5rem !important;
+        }
+        
+         
+        .pro-tip-content {
+            position: relative !important; 
+            z-index: 5 !important;
+        }
+        
+        .pro-tip-content h3 {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: relative !important;
+            z-index: 10 !important;
+        }
+        
+         
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            z-index: 60;
+        }
+        
+        .mobile-menu-btn:focus {
+            outline: none;
+        }
+        
+        .mobile-menu-icon {
+            display: block;
+            position: relative;
+            width: 24px;
+            height: 2px;
+            background-color: #000000;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-icon:before,
+        .mobile-menu-icon:after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 2px;
+            background-color: #000000;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-icon:before {
+            top: -8px;
+        }
+        
+        .mobile-menu-icon:after {
+            bottom: -8px;
+        }
+        
+        .mobile-menu-btn.active .mobile-menu-icon {
+            background-color: transparent;
+        }
+        
+        .mobile-menu-btn.active .mobile-menu-icon:before {
+            top: 0;
+            transform: rotate(45deg);
+        }
+        
+        .mobile-menu-btn.active .mobile-menu-icon:after {
+            bottom: 0;
+            transform: rotate(-45deg);
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            z-index: 55;
+            padding: 5rem 2rem 2rem;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .mobile-menu-link {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #000000;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-menu-dropdown {
+            margin-top: 0.5rem;
+        }
+        
+        .mobile-menu-dropdown-items {
+            margin-top: 1rem;
+            padding-left: 1rem;
+            display: none;
+        }
+        
+        .mobile-menu-dropdown-items.open {
+            display: block;
+        }
+        
+        .mobile-menu-dropdown-item {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0;
+            color: #000000;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 639px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+        }
+        
+         
+        pre[class*="language-"] {
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            max-height: none;
+            overflow: visible;
+            white-space: pre-wrap;
+        }
+        
+        code[class*="language-"] {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            padding: 0;
+            white-space: pre-wrap;
+            word-break: normal;
+        }
+        
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #2d2d2d;
+            color: #ccc;
+            font-size: 0.8rem;
+            padding: 0.5rem 1rem;
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+            border-bottom: 1px solid #444;
+        }
+        
+        .code-language {
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .code-copy-btn {
+            background: none;
+            border: none;
+            color: #ccc;
+            cursor: pointer;
+            transition: color 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .code-copy-btn:hover {
+            color: white;
+        }
+        
+         
+        .line-numbers-rows {
+            display: none !important;
+        }
+        
+        pre[class*="language-"].line-numbers {
+            padding-left: 1em !important;
+        }
+        
+         
+        :not(pre) > code {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: #000;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body class="bg-white text-black">
+    <nav class="bg-white shadow-sm nav-auto-hide">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <div class="logo-container">
+                            <img src="/assets/images/4j-logo.webp" alt="4J Logo" class="hover-scale">
+                        </div>
+                        <a href="/" class="text-2xl font-bold text-black hover-scale">model-renderer</a>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="/" class="nav-link border-transparent text-black hover:text-black inline-flex items-center px-1 pt-1 text-sm font-medium">
+                            Home
+                        </a>
+                        <a href="/features" class="nav-link border-transparent text-black hover:text-black inline-flex items-center px-1 pt-1 text-sm font-medium">
+                            Features
+                        </a>
+                        <a href="/examples" class="nav-link border-transparent text-black hover:text-black inline-flex items-center px-1 pt-1 text-sm font-medium">
+                            Examples
+                        </a>
+                        <div class="nav-dropdown">
+                            <button class="nav-link border-transparent text-black hover:text-black inline-flex items-center px-1 pt-1 text-sm font-medium h-full">
+                                Modules
+                                <i class="fas fa-chevron-down ml-1 text-xs transition-transform duration-200"></i>
+                            </button>
+                            <div class="nav-dropdown-content">
+                                <a href="/subprojects/mr-graphics" class="nav-dropdown-item">
+                                    <i class="fas fa-paint-brush mr-2"></i>
+                                    <span>mr-graphics</span>
+                                </a>
+                                <a href="/subprojects/mr-importer" class="nav-dropdown-item">
+                                    <i class="fas fa-file-import mr-2"></i>
+                                    <span>mr-importer</span>
+                                </a>
+                                <a href="/subprojects/mr-contractor" class="nav-dropdown-item">
+                                    <i class="fas fa-tasks mr-2"></i>
+                                    <span>mr-contractor</span>
+                                </a>
+                                <a href="/subprojects/mr-math" class="nav-dropdown-item">
+                                    <i class="fas fa-calculator mr-2"></i>
+                                    <span>mr-math</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="flex items-center sm:hidden">
+                    <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+                        <span class="mobile-menu-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    
+    <div class="mobile-menu">
+        <div class="mobile-menu-links">
+            <a href="/" class="mobile-menu-link">
+                <i class="fas fa-home mr-2"></i>
+                Home
+            </a>
+            <a href="/features" class="mobile-menu-link">
+                <i class="fas fa-star mr-2"></i>
+                Features
+            </a>
+            <a href="/examples" class="mobile-menu-link">
+                <i class="fas fa-image mr-2"></i>
+                Examples
+            </a>
+            <div class="mobile-menu-dropdown">
+                <button class="mobile-menu-link w-full flex justify-between items-center" id="mobile-modules-dropdown">
+                    <div>
+                        <i class="fas fa-cubes mr-2"></i>
+                        Modules
+                    </div>
+                    <i class="fas fa-chevron-down transition-transform duration-200"></i>
+                </button>
+                <div class="mobile-menu-dropdown-items">
+                    <a href="/subprojects/mr-graphics" class="mobile-menu-dropdown-item">
+                        <i class="fas fa-paint-brush mr-2"></i>
+                        <span>mr-graphics</span>
+                    </a>
+                    <a href="/subprojects/mr-importer" class="mobile-menu-dropdown-item">
+                        <i class="fas fa-file-import mr-2"></i>
+                        <span>mr-importer</span>
+                    </a>
+                    <a href="/subprojects/mr-contractor" class="mobile-menu-dropdown-item">
+                        <i class="fas fa-tasks mr-2"></i>
+                        <span>mr-contractor</span>
+                    </a>
+                    <a href="/subprojects/mr-math" class="mobile-menu-dropdown-item">
+                        <i class="fas fa-calculator mr-2"></i>
+                        <span>mr-math</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-trigger-area"></div>
+
+    <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 mt-16">
+        
+<div class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:text-center">
+            <span class="inline-block px-3 py-1 text-xs font-semibold tracking-widest text-white bg-black rounded-full">CAPABILITIES</span>
+            <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-black sm:text-4xl">
+                Technical Excellence
+            </p>
+            <p class="mt-4 max-w-2xl text-xl text-gray-800 lg:mx-auto">
+                model-renderer provides a comprehensive set of features for creating high-performance games.
+            </p>
+        </div>
+
+        <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            
+            <div class="high-contrast-card p-6 rounded-lg">
+                <div class="flex items-center mb-4">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-black text-white mr-4">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-black">High Performance</h3>
+                </div>
+                <p class="text-gray-800">
+                    Built from the ground up with performance in mind, leveraging multi-threading and SIMD optimizations.
+                </p>
+                <ul class="mt-4 space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Task-based parallelism</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>SIMD vector operations</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Data-oriented design</span>
+                    </li>
+                </ul>
+            </div>
+
+            
+            <div class="high-contrast-card p-6 rounded-lg">
+                <div class="flex items-center mb-4">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-black text-white mr-4">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-black">Advanced Rendering</h3>
+                </div>
+                <p class="text-gray-800">
+                    Modern Vulkan-based rendering pipeline with physically-based materials and lighting.
+                </p>
+                <ul class="mt-4 space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>PBR materials</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Ray-traced reflections</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Post-processing effects</span>
+                    </li>
+                </ul>
+            </div>
+
+            
+            <div class="high-contrast-card p-6 rounded-lg">
+                <div class="flex items-center mb-4">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-black text-white mr-4">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-black">Modular Architecture</h3>
+                </div>
+                <p class="text-gray-800">
+                    A set of independent modules that can be used together or separately in your projects.
+                </p>
+                <ul class="mt-4 space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Loosely coupled design</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Minimal dependencies</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Clean API boundaries</span>
+                    </li>
+                </ul>
+            </div>
+
+            
+            <div class="high-contrast-card p-6 rounded-lg">
+                <div class="flex items-center mb-4">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-black text-white mr-4">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-black">Cross-platform</h3>
+                </div>
+                <p class="text-gray-800">
+                    Support for multiple platforms with consistent behavior and performance.
+                </p>
+                <ul class="mt-4 space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Windows, macOS, Linux</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>iOS and Android</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Console platforms</span>
+                    </li>
+                </ul>
+            </div>
+
+            
+            <div class="high-contrast-card p-6 rounded-lg">
+                <div class="flex items-center mb-4">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-black text-white mr-4">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-black">Modern C++</h3>
+                </div>
+                <p class="text-gray-800">
+                    Built with C++23, taking advantage of the latest language features for safety and performance.
+                </p>
+                <ul class="mt-4 space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Type safety</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Compile-time evaluation</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Clean, readable code</span>
+                    </li>
+                </ul>
+            </div>
+
+            
+            <div class="high-contrast-card p-6 rounded-lg">
+                <div class="flex items-center mb-4">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-black text-white mr-4">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-black">Developer Tools</h3>
+                </div>
+                <p class="text-gray-800">
+                    Comprehensive tooling for asset management, debugging, and profiling.
+                </p>
+                <ul class="mt-4 space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Asset pipeline</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Performance profiling</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Memory debugging</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-16 text-center">
+            <p class="text-xl font-bold text-black mb-6">Ready to start building with model-renderer?</p>
+            <a href="/download" class="high-contrast-btn inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm">
+                Get Started <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-8">
+        <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-black text-sm">
+                © 2024 4J. All rights reserved. model-renderer™
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+        
+        
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: false
+        });
+        
+        
+        gsap.from('.gradient-text', {
+            duration: 1,
+            y: -20,
+            opacity: 0,
+            ease: 'power3.out'
+        });
+        
+        
+        document.querySelectorAll('.prose h3').forEach((el, index) => {
+            
+            const staticHeadings = ['Overview', 'Dependencies', 'Key Features', 'Feature Roadmap', 'Performance Optimizations', 'Pro Tip'];
+            
+            
+            if (window.location.pathname.includes('/subprojects/') && 
+                (staticHeadings.includes(el.textContent.trim()) || el.closest('.bg-gradient-to-r'))) {
+                
+                el.removeAttribute('data-aos');
+                el.removeAttribute('data-aos-delay');
+                return;
+            }
+            
+            el.setAttribute('data-aos', 'fade-up');
+            el.setAttribute('data-aos-delay', (index * 100).toString());
+        });
+        
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            document.querySelectorAll('.prose .bg-gradient-to-r h3').forEach(function(el) {
+                
+                el.style.opacity = '1';
+                el.style.visibility = 'visible';
+                el.style.display = 'block';
+                el.style.position = 'relative';
+                el.style.zIndex = '10';
+                
+                
+                el.removeAttribute('data-aos');
+                el.removeAttribute('data-aos-delay');
+            });
+        });
+        
+        document.querySelectorAll('.card-hover').forEach((card) => {
+            card.setAttribute('data-aos', 'fade-up');
+        });
+
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.querySelector('.nav-auto-hide');
+            const triggerArea = document.querySelector('.nav-trigger-area');
+            let hideTimeout;
+
+            
+            if (window.location.pathname === '/examples') {
+                
+                hideTimeout = setTimeout(() => {
+                    nav.classList.add('hidden');
+                }, 2000);
+
+                
+                triggerArea.addEventListener('mouseenter', () => {
+                    clearTimeout(hideTimeout);
+                    nav.classList.remove('hidden');
+                });
+
+                
+                triggerArea.addEventListener('mouseleave', () => {
+                    hideTimeout = setTimeout(() => {
+                        nav.classList.add('hidden');
+                    }, 1000);
+                });
+
+                
+                let scrollTimeout;
+                window.addEventListener('scroll', () => {
+                    clearTimeout(hideTimeout);
+                    clearTimeout(scrollTimeout);
+                    nav.classList.remove('hidden');
+                    
+                    scrollTimeout = setTimeout(() => {
+                        hideTimeout = setTimeout(() => {
+                            nav.classList.add('hidden');
+                        }, 1000);
+                    }, 150);
+                });
+            }
+        });
+
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileModulesDropdown = document.getElementById('mobile-modules-dropdown');
+            const mobileModulesItems = mobileModulesDropdown.nextElementSibling;
+            
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenuBtn.classList.toggle('active');
+                mobileMenu.classList.toggle('open');
+                
+                document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+            });
+            
+            
+            mobileModulesDropdown.addEventListener('click', () => {
+                mobileModulesItems.classList.toggle('open');
+                mobileModulesDropdown.querySelector('.fa-chevron-down').style.transform = 
+                    mobileModulesItems.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0)';
+            });
+            
+            
+            const mobileLinks = document.querySelectorAll('.mobile-menu-link:not(#mobile-modules-dropdown), .mobile-menu-dropdown-item');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuBtn.classList.remove('active');
+                    mobileMenu.classList.remove('open');
+                    document.body.style.overflow = '';
+                });
+            });
+        });
+
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            if (typeof Prism !== 'undefined') {
+                Prism.highlightAll();
+                
+                
+                document.querySelectorAll('pre[class*="language-"]').forEach(pre => {
+                    
+                    if (pre.parentNode.querySelector('.code-header')) return;
+                    
+                    
+                    const classes = pre.className.split(' ');
+                    const languageClass = classes.find(c => c.startsWith('language-'));
+                    const language = languageClass ? languageClass.replace('language-', '') : 'text';
+                    
+                    
+                    const header = document.createElement('div');
+                    header.className = 'code-header';
+                    
+                    
+                    const langLabel = document.createElement('span');
+                    langLabel.className = 'code-language';
+                    langLabel.textContent = language;
+                    header.appendChild(langLabel);
+                    
+                    
+                    const copyBtn = document.createElement('button');
+                    copyBtn.className = 'code-copy-btn';
+                    copyBtn.innerHTML = '<i class="fas fa-copy"></i> <span>Copy</span>';
+                    copyBtn.onclick = function() {
+                        const code = pre.querySelector('code').textContent;
+                        navigator.clipboard.writeText(code).then(() => {
+                            copyBtn.innerHTML = '<i class="fas fa-check"></i> <span>Copied!</span>';
+                            setTimeout(() => {
+                                copyBtn.innerHTML = '<i class="fas fa-copy"></i> <span>Copy</span>';
+                            }, 2000);
+                        });
+                    };
+                    header.appendChild(copyBtn);
+                    
+                    
+                    if (pre.classList.contains('line-numbers')) {
+                        pre.classList.remove('line-numbers');
+                    }
+                    
+                    
+                    pre.insertAdjacentElement('beforebegin', header);
+                    
+                    
+                    const wrapper = document.createElement('div');
+                    wrapper.style.position = 'relative';
+                    wrapper.style.marginBottom = '1.5rem';
+                    pre.parentNode.insertBefore(wrapper, pre);
+                    wrapper.appendChild(header);
+                    wrapper.appendChild(pre);
+                });
+            }
+        });
+    </script>
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-go.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-glsl.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-rust.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
+</body>
+</html> 
