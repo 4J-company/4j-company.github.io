@@ -1,0 +1,124 @@
+{{define "content"}}
+<div class="bg-white">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+        <div class="lg:text-center mb-12">
+            <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-black text-white">
+                Module
+            </span>
+            <h2 class="mt-4 text-4xl font-extrabold tracking-tight text-black sm:text-5xl">
+                mr-contractor
+            </h2>
+            <p class="mt-4 max-w-2xl text-xl text-gray-700 lg:mx-auto">
+                A declarative C++ task execution library for modern game development
+            </p>
+        </div>
+
+        <div class="mt-10">
+            <div class="space-y-10">
+                <div class="prose prose-lg mx-auto">
+                    <div class="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-8 mb-8 border border-gray-200">
+                        <h3 class="text-2xl font-bold text-black mb-4 !mt-0">Overview</h3>
+                        <p class="text-lg text-gray-800 leading-relaxed">
+                            mr-contractor transforms how you build complex workflows in C++. With its declarative API and type-safe design, it makes managing task dependencies and parallel execution intuitive and efficient.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div class="high-contrast-card rounded-xl p-6">
+                            <h4 class="text-lg font-semibold text-black mb-4 !mt-0">Core Features</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start space-x-3">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </span>
+                                    <span class="text-gray-800">Declarative API for workflow definition</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </span>
+                                    <span class="text-gray-800">Type-safe task dependencies</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </span>
+                                    <span class="text-gray-800">Automatic dependency resolution</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </span>
+                                    <span class="text-gray-800">Parallel task execution</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="high-contrast-card rounded-xl p-6">
+                            <h4 class="text-lg font-semibold text-black mb-4 !mt-0">Advanced Features</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start space-x-3">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
+                                        <i class="fas fa-layer-group text-white text-sm"></i>
+                                    </span>
+                                    <span class="text-gray-800">Nested workflow support</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
+                                        <i class="fas fa-code-branch text-white text-sm"></i>
+                                    </span>
+                                    <span class="text-gray-800">Conditional task execution</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
+                                        <i class="fas fa-stop-circle text-white text-sm"></i>
+                                    </span>
+                                    <span class="text-gray-800">Task cancellation and cleanup</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
+                                        <i class="fas fa-chart-line text-white text-sm"></i>
+                                    </span>
+                                    <span class="text-gray-800">Progress monitoring and reporting</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8">
+                        <h4 class="text-lg font-semibold text-black mb-4 !mt-0">Example Usage</h4>
+                        <div class="bg-gray-900 rounded-lg p-4">
+                            <pre class="language-cpp"><code class="language-cpp">// Define a simple sequential pipeline
+auto pipeline = make_pipeline(
+    load_assets(),
+    process_textures(),
+    generate_materials(),
+    build_scene()
+);
+
+// Execute the pipeline
+pipeline.execute();</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <div class="h-12 w-12 rounded-full bg-black flex items-center justify-center">
+                                    <i class="fas fa-lightbulb text-white text-xl"></i>
+                                </div>
+                            </div>
+                            <div class="pro-tip-content" style="position: relative; z-index: 5;">
+                                <h3 class="text-lg font-semibold text-black !mt-0 !mb-2" style="position: relative; z-index: 10; display: block;">Pro Tip</h3>
+                                <p class="mt-2 text-gray-800">
+                                    Use the declarative API to define complex workflows in a clear, maintainable way. The library automatically handles dependency resolution and parallel execution.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{end}} 

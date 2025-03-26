@@ -1,0 +1,189 @@
+{{define "content"}}
+<div class="bg-white">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+        <div class="lg:text-center mb-12">
+            <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-black text-white">
+                Module
+            </span>
+            <h2 class="mt-4 text-4xl font-extrabold tracking-tight text-black sm:text-5xl">
+                mr-graphics
+            </h2>
+            <p class="mt-4 max-w-2xl text-xl text-gray-700 lg:mx-auto">
+                A high-performance Vulkan rendering library for modern 3D graphics
+            </p>
+        </div>
+
+        <div class="mt-10">
+            <div class="space-y-10">
+                <div class="prose prose-lg mx-auto">
+                    <div class="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-8 mb-8 border border-gray-200">
+                        <h3 class="text-2xl font-bold text-black mb-4 !mt-0">Overview</h3>
+                        <p class="text-lg text-gray-800 leading-relaxed">
+                            mr-graphics is the core rendering engine of the model-renderer suite, providing a 
+                            modern, high-performance graphics API built on Vulkan. It handles everything from 
+                            low-level GPU resource management to high-level scene rendering, enabling developers 
+                            to create visually stunning applications with optimal performance.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div class="high-contrast-card rounded-xl p-6">
+                            <h4 class="text-lg font-semibold text-black mb-4 !mt-0">Core Features</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start space-x-3">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
+                                        <i class="fas fa-bolt text-white text-sm"></i>
+                                    </span>
+                                    <span class="text-gray-800">Full Vulkan 1.3 integration</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
+                                        <i class="fas fa-microchip text-white text-sm"></i>
+                                    </span>
+                                    <span class="text-gray-800">Multi-threaded rendering architecture</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
+                                        <i class="fas fa-layer-group text-white text-sm"></i>
+                                    </span>
+                                    <span class="text-gray-800">Optimized render graph system</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
+                                        <i class="fas fa-memory text-white text-sm"></i>
+                                    </span>
+                                    <span class="text-gray-800">Advanced GPU memory management</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="high-contrast-card rounded-xl p-6">
+                            <h4 class="text-lg font-semibold text-black mb-4 !mt-0">Rendering Capabilities</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start space-x-3">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
+                                        <i class="fas fa-lightbulb text-white text-sm"></i>
+                                    </span>
+                                    <span class="text-gray-800">Physically-based rendering (PBR)</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
+                                        <i class="fas fa-sun text-white text-sm"></i>
+                                    </span>
+                                    <span class="text-gray-800">Real-time global illumination</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
+                                        <i class="fas fa-tint text-white text-sm"></i>
+                                    </span>
+                                    <span class="text-gray-800">Volumetric lighting and fog</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
+                                        <i class="fas fa-magic text-white text-sm"></i>
+                                    </span>
+                                    <span class="text-gray-800">Advanced post-processing effects</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8">
+                        <h4 class="text-lg font-semibold text-black mb-4 !mt-0">Technical Specifications</h4>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead>
+                                    <tr>
+                                        <th class="px-4 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Feature</th>
+                                        <th class="px-4 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Specification</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">Graphics API</td>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">Vulkan 1.3</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">Shader Language</td>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">GLSL, HLSL (with internal converter)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">Memory Management</td>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">Custom pool allocator with defragmentation</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">Ray Tracing</td>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">VK_KHR_ray_tracing_pipeline</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">Mesh Shading</td>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">VK_EXT_mesh_shader</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8">
+                        <h4 class="text-lg font-semibold text-black mb-4 !mt-0">Example Usage</h4>
+                        <div class="bg-gray-900 rounded-lg p-4">
+                            <pre class="language-cpp"><code class="language-cpp">// Initialize the graphics context
+mr::graphics::Context context;
+context.initialize(window.getNativeHandle());
+
+// Create a renderer
+mr::graphics::Renderer renderer(context);
+
+// Load a mesh
+auto mesh = mr::importer::load_mesh("models/character.gltf");
+
+// Create material
+auto material = renderer.createMaterial("shaders/pbr.glsl");
+material->setTexture("albedo", loadTexture("textures/albedo.png"));
+material->setTexture("normal", loadTexture("textures/normal.png"));
+material->setTexture("metallic", loadTexture("textures/metallic.png"));
+material->setTexture("roughness", loadTexture("textures/roughness.png"));
+
+// Set up scene and camera
+auto scene = renderer.createScene();
+auto camera = scene->createCamera();
+camera->setPosition({0, 1.7f, 5});
+camera->lookAt({0, 0, 0});
+
+// Add mesh to scene
+auto entity = scene->createEntity();
+entity->setMesh(mesh);
+entity->setMaterial(material);
+
+// Main render loop
+while (window.isOpen()) {
+    renderer.beginFrame();
+    scene->update(deltaTime);
+    renderer.renderScene(scene, camera);
+    renderer.endFrame();
+    window.swapBuffers();
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <div class="h-12 w-12 rounded-full bg-black flex items-center justify-center">
+                                    <i class="fas fa-lightbulb text-white text-xl"></i>
+                                </div>
+                            </div>
+                            <div class="pro-tip-content" style="position: relative; z-index: 5;">
+                                <h3 class="text-lg font-semibold text-black !mt-0 !mb-2" style="position: relative; z-index: 10; display: block;">Pro Tip</h3>
+                                <p class="mt-2 text-gray-800">
+                                    For optimal performance, group your draw calls by material and use the render graph to minimize pipeline state changes. This can dramatically improve throughput on modern GPUs.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{end}} 

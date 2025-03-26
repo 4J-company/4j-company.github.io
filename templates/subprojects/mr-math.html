@@ -1,0 +1,121 @@
+{{define "content"}}
+<div class="bg-white">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+        <div class="lg:text-center mb-12">
+            <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-black text-white">
+                Module
+            </span>
+            <h2 class="mt-4 text-4xl font-extrabold tracking-tight text-black sm:text-5xl">
+                mr-math
+            </h2>
+            <p class="mt-4 max-w-2xl text-xl text-gray-700 lg:mx-auto">
+                A lightweight and high-performance linear algebra library for 3D graphics
+            </p>
+        </div>
+
+        <div class="mt-10">
+            <div class="space-y-10">
+                <div class="prose prose-lg mx-auto">
+                    <div class="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-8 mb-8 border border-gray-200">
+                        <h3 class="text-2xl font-bold text-black mb-4 !mt-0">Overview</h3>
+                        <p class="text-lg text-gray-800 leading-relaxed">
+                            mr-math is a modern C++23 linear algebra library specifically designed for 3D graphics and game development. It provides a comprehensive set of mathematical operations with a focus on performance and ease of use.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div class="high-contrast-card rounded-xl p-6">
+                            <h4 class="text-lg font-semibold text-black mb-4 !mt-0">Core Features</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start space-x-3">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </span>
+                                    <span class="text-gray-800">Cross-platform support</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </span>
+                                    <span class="text-gray-800">Modern C++23 compatibility</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </span>
+                                    <span class="text-gray-800">Type-safe operations</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </span>
+                                    <span class="text-gray-800">SIMD optimizations</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="high-contrast-card rounded-xl p-6">
+                            <h4 class="text-lg font-semibold text-black mb-4 !mt-0">Mathematical Operations</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start space-x-3">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
+                                        <i class="fas fa-calculator text-white text-sm"></i>
+                                    </span>
+                                    <span class="text-gray-800">Vector and matrix operations</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
+                                        <i class="fas fa-calculator text-white text-sm"></i>
+                                    </span>
+                                    <span class="text-gray-800">Quaternion support</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
+                                        <i class="fas fa-calculator text-white text-sm"></i>
+                                    </span>
+                                    <span class="text-gray-800">Geometric primitives</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
+                                        <i class="fas fa-calculator text-white text-sm"></i>
+                                    </span>
+                                    <span class="text-gray-800">Interpolation functions</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8">
+                        <h4 class="text-lg font-semibold text-black mb-4 !mt-0">Performance</h4>
+                        <div class="bg-gray-900 rounded-lg p-4">
+                            <pre class="language-cpp"><code class="language-cpp">// Example of optimized vector operations
+vec3 position = {1.0f, 2.0f, 3.0f};
+vec3 velocity = {0.1f, 0.2f, 0.3f};
+float deltaTime = 0.016f;
+
+// SIMD-optimized update
+position += velocity * deltaTime;</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <div class="h-12 w-12 rounded-full bg-black flex items-center justify-center">
+                                    <i class="fas fa-lightbulb text-white text-xl"></i>
+                                </div>
+                            </div>
+                            <div class="pro-tip-content" style="position: relative; z-index: 5;">
+                                <h3 class="text-lg font-semibold text-black !mt-0 !mb-2" style="position: relative; z-index: 10; display: block;">Pro Tip</h3>
+                                <p class="mt-2 text-gray-800">
+                                    mr-math's SIMD optimizations provide significant performance improvements for vector operations, making it ideal for real-time graphics applications.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{end}} 
