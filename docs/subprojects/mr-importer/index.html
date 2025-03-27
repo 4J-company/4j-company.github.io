@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -429,6 +430,12 @@
     </style>
 </head>
 <body class="bg-white text-black">
+    <script>
+        console.log("Page language: English");
+        console.log("Current path:", window.location.pathname);
+    </script>
+    
+    
     <nav class="bg-white shadow-sm nav-auto-hide">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex justify-between h-16">
@@ -443,10 +450,10 @@
                         <a href="/" class="nav-link border-transparent text-black hover:text-black inline-flex items-center px-1 pt-1 text-sm font-medium">
                             Home
                         </a>
-                        <a href="/features" class="nav-link border-transparent text-black hover:text-black inline-flex items-center px-1 pt-1 text-sm font-medium">
+                        <a href="/features/index.html" class="nav-link border-transparent text-black hover:text-black inline-flex items-center px-1 pt-1 text-sm font-medium">
                             Features
                         </a>
-                        <a href="/examples" class="nav-link border-transparent text-black hover:text-black inline-flex items-center px-1 pt-1 text-sm font-medium">
+                        <a href="/examples/index.html" class="nav-link border-transparent text-black hover:text-black inline-flex items-center px-1 pt-1 text-sm font-medium">
                             Examples
                         </a>
                         <div class="nav-dropdown">
@@ -477,7 +484,18 @@
                 </div>
                 
                 
+                <div class="hidden sm:flex sm:items-center">
+                    <button onclick="switchLanguage()" class="inline-flex items-center px-3 py-1 text-sm font-medium rounded-md text-white bg-black hover:bg-gray-800 border border-gray-700 transition-all duration-200">
+                        <span class="mr-1">🇷🇺</span>
+                        <span>Русский</span>
+                    </button>
+                </div>
+                
+                
                 <div class="flex items-center sm:hidden">
+                    <button onclick="switchLanguage()" class="mr-4 inline-flex items-center px-2 py-1 text-sm font-medium rounded-md text-white bg-black">
+                        🇷🇺
+                    </button>
                     <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
                         <span class="mobile-menu-icon"></span>
                     </button>
@@ -493,11 +511,11 @@
                 <i class="fas fa-home mr-2"></i>
                 Home
             </a>
-            <a href="/features" class="mobile-menu-link">
+            <a href="/features/index.html" class="mobile-menu-link">
                 <i class="fas fa-star mr-2"></i>
                 Features
             </a>
-            <a href="/examples" class="mobile-menu-link">
+            <a href="/examples/index.html" class="mobile-menu-link">
                 <i class="fas fa-image mr-2"></i>
                 Examples
             </a>
@@ -545,7 +563,7 @@
                 mr-importer
             </h2>
             <p class="mt-4 max-w-2xl text-xl text-gray-700 lg:mx-auto">
-                An opinionated asset importer for modern game development
+                Universal import system for 3D models and textures
             </p>
             <a href="https://github.com/4j-company/mr-importer" class="mt-4 inline-flex items-center px-3 py-2 text-sm font-medium rounded-md text-white bg-black hover:bg-gray-800">
                 <i class="fab fa-github mr-2"></i> View on GitHub
@@ -558,7 +576,7 @@
                     <div class="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-8 mb-8 border border-gray-200">
                         <h3 class="text-2xl font-bold text-black mb-4 !mt-0">Overview</h3>
                         <p class="text-lg text-gray-800 leading-relaxed">
-                            mr-importer revolutionizes asset processing with a specialized system for 3D models, textures, and materials. Built on modern C++ libraries, it delivers an efficient, reliable pipeline that accelerates your game development workflow.
+                            mr-importer provides a unified interface for loading various 3D model and texture formats. It supports standard formats including OBJ, FBX, glTF, and converts them to optimized internal structures.
                         </p>
                     </div>
 
@@ -567,15 +585,15 @@
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div class="flex items-center space-x-2">
                                 <i class="fas fa-cube text-black"></i>
-                                <span class="text-gray-800">fastgltf</span>
+                                <span class="text-gray-800">mr-math</span>
                             </div>
                             <div class="flex items-center space-x-2">
                                 <i class="fas fa-tachometer-alt text-black"></i>
-                                <span class="text-gray-800">meshoptimizer</span>
+                                <span class="text-gray-800">Assimp (optional)</span>
                             </div>
                             <div class="flex items-center space-x-2">
                                 <i class="fas fa-tasks text-black"></i>
-                                <span class="text-gray-800">work_contracts</span>
+                                <span class="text-gray-800">libpng/libjpeg</span>
                             </div>
                         </div>
                     </div>
@@ -640,7 +658,7 @@
                             <div class="pro-tip-content" style="position: relative; z-index: 5;">
                                 <h3 class="text-lg font-semibold text-black !mt-0 !mb-2" style="position: relative; z-index: 10; display: block;">Pro Tip</h3>
                                 <p class="mt-2 text-gray-800">
-                                    The importer automatically determines whether to use sequential or parallel processing based on asset size, ensuring optimal performance for both small and large assets.
+                                    Use the glTF format for best compatibility and performance. It provides faster loading times and preserves important metadata for PBR rendering.
                                 </p>
                             </div>
                         </div>
@@ -656,7 +674,7 @@
     <footer class="bg-white border-t border-gray-200 mt-8">
         <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
             <p class="text-center text-black text-sm">
-                © 2024 4J. All rights reserved. model-renderer™
+                © 2025 model-renderer. All rights reserved.
             </p>
         </div>
     </footer>
@@ -852,6 +870,41 @@
                 });
             }
         });
+
+        function switchLanguage() {
+    // Get the current path and check if we're on a Russian page
+    const path = window.location.pathname;
+    const isRussian = path.includes('_ru.html');
+    
+    // Determine the new path
+    let newPath;
+    if (isRussian) {
+        // Switch from Russian to English
+        newPath = path.replace('_ru.html', '.html');
+    } else {
+        // Switch from English to Russian
+        newPath = path.replace('.html', '_ru.html');
+    }
+    
+    // Handle special case for index page
+    if (path === '/' || path === '/index.html') {
+        newPath = '/index_ru.html';
+    } else if (path === '/index_ru.html') {
+        newPath = '/index.html';
+    }
+    
+    // Handle case for paths ending with slash
+    if (path.endsWith('/')) {
+        if (isRussian) {
+            newPath = path + 'index.html';
+        } else {
+            newPath = path + 'index_ru.html';
+        }
+    }
+    
+    console.log('Switching language from', path, 'to', newPath);
+    window.location.href = newPath;
+}
     </script>
     
     
@@ -870,4 +923,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
 </body>
-</html> 
+</html>

@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mr-graphics - model-renderer</title>
+    <title>Features - model-renderer</title>
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
@@ -431,7 +431,7 @@
 </head>
 <body class="bg-white text-black">
     <script>
-        console.log("Page language: English");
+        console.log("Page language: Russian");
         console.log("Current path:", window.location.pathname);
     </script>
     
@@ -444,37 +444,37 @@
                         <div class="logo-container">
                             <img src="/assets/images/4j-logo.webp" alt="4J Logo" class="hover-scale">
                         </div>
-                        <a href="/" class="text-2xl font-bold text-black hover-scale">model-renderer</a>
+                        <a href="/index_ru.html" class="text-2xl font-bold text-black hover-scale">model-renderer</a>
                     </div>
                     <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-                        <a href="/" class="nav-link border-transparent text-black hover:text-black inline-flex items-center px-1 pt-1 text-sm font-medium">
-                            Home
+                        <a href="/index_ru.html" class="nav-link border-transparent text-black hover:text-black inline-flex items-center px-1 pt-1 text-sm font-medium">
+                            Главная
                         </a>
-                        <a href="/features/index.html" class="nav-link border-transparent text-black hover:text-black inline-flex items-center px-1 pt-1 text-sm font-medium">
-                            Features
+                        <a href="/features/index_ru.html" class="nav-link border-transparent text-black hover:text-black inline-flex items-center px-1 pt-1 text-sm font-medium">
+                            Возможности
                         </a>
-                        <a href="/examples/index.html" class="nav-link border-transparent text-black hover:text-black inline-flex items-center px-1 pt-1 text-sm font-medium">
-                            Examples
+                        <a href="/examples/index_ru.html" class="nav-link border-transparent text-black hover:text-black inline-flex items-center px-1 pt-1 text-sm font-medium">
+                            Примеры
                         </a>
                         <div class="nav-dropdown">
                             <button class="nav-link border-transparent text-black hover:text-black inline-flex items-center px-1 pt-1 text-sm font-medium h-full">
-                                Modules
+                                Модули
                                 <i class="fas fa-chevron-down ml-1 text-xs transition-transform duration-200"></i>
                             </button>
                             <div class="nav-dropdown-content">
-                                <a href="/subprojects/mr-graphics" class="nav-dropdown-item">
+                                <a href="/subprojects/mr-graphics/index_ru.html" class="nav-dropdown-item">
                                     <i class="fas fa-paint-brush mr-2"></i>
                                     <span>mr-graphics</span>
                                 </a>
-                                <a href="/subprojects/mr-importer" class="nav-dropdown-item">
+                                <a href="/subprojects/mr-importer/index_ru.html" class="nav-dropdown-item">
                                     <i class="fas fa-file-import mr-2"></i>
                                     <span>mr-importer</span>
                                 </a>
-                                <a href="/subprojects/mr-contractor" class="nav-dropdown-item">
+                                <a href="/subprojects/mr-contractor/index_ru.html" class="nav-dropdown-item">
                                     <i class="fas fa-tasks mr-2"></i>
                                     <span>mr-contractor</span>
                                 </a>
-                                <a href="/subprojects/mr-math" class="nav-dropdown-item">
+                                <a href="/subprojects/mr-math/index_ru.html" class="nav-dropdown-item">
                                     <i class="fas fa-calculator mr-2"></i>
                                     <span>mr-math</span>
                                 </a>
@@ -486,15 +486,15 @@
                 
                 <div class="hidden sm:flex sm:items-center">
                     <button onclick="switchLanguage()" class="inline-flex items-center px-3 py-1 text-sm font-medium rounded-md text-white bg-black hover:bg-gray-800 border border-gray-700 transition-all duration-200">
-                        <span class="mr-1">🇷🇺</span>
-                        <span>Русский</span>
+                        <span class="mr-1">🇺🇸</span>
+                        <span>English</span>
                     </button>
                 </div>
                 
                 
                 <div class="flex items-center sm:hidden">
                     <button onclick="switchLanguage()" class="mr-4 inline-flex items-center px-2 py-1 text-sm font-medium rounded-md text-white bg-black">
-                        🇷🇺
+                        🇺🇸
                     </button>
                     <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
                         <span class="mobile-menu-icon"></span>
@@ -507,40 +507,40 @@
     
     <div class="mobile-menu">
         <div class="mobile-menu-links">
-            <a href="/" class="mobile-menu-link">
+            <a href="/index_ru.html" class="mobile-menu-link">
                 <i class="fas fa-home mr-2"></i>
-                Home
+                Главная
             </a>
-            <a href="/features/index.html" class="mobile-menu-link">
+            <a href="/features/index_ru.html" class="mobile-menu-link">
                 <i class="fas fa-star mr-2"></i>
-                Features
+                Возможности
             </a>
-            <a href="/examples/index.html" class="mobile-menu-link">
+            <a href="/examples/index_ru.html" class="mobile-menu-link">
                 <i class="fas fa-image mr-2"></i>
-                Examples
+                Примеры
             </a>
             <div class="mobile-menu-dropdown">
                 <button class="mobile-menu-link w-full flex justify-between items-center" id="mobile-modules-dropdown">
                     <div>
                         <i class="fas fa-cubes mr-2"></i>
-                        Modules
+                        Модули
                     </div>
                     <i class="fas fa-chevron-down transition-transform duration-200"></i>
                 </button>
                 <div class="mobile-menu-dropdown-items">
-                    <a href="/subprojects/mr-graphics" class="mobile-menu-dropdown-item">
+                    <a href="/subprojects/mr-graphics/index_ru.html" class="mobile-menu-dropdown-item">
                         <i class="fas fa-paint-brush mr-2"></i>
                         <span>mr-graphics</span>
                     </a>
-                    <a href="/subprojects/mr-importer" class="mobile-menu-dropdown-item">
+                    <a href="/subprojects/mr-importer/index_ru.html" class="mobile-menu-dropdown-item">
                         <i class="fas fa-file-import mr-2"></i>
                         <span>mr-importer</span>
                     </a>
-                    <a href="/subprojects/mr-contractor" class="mobile-menu-dropdown-item">
+                    <a href="/subprojects/mr-contractor/index_ru.html" class="mobile-menu-dropdown-item">
                         <i class="fas fa-tasks mr-2"></i>
                         <span>mr-contractor</span>
                     </a>
-                    <a href="/subprojects/mr-math" class="mobile-menu-dropdown-item">
+                    <a href="/subprojects/mr-math/index_ru.html" class="mobile-menu-dropdown-item">
                         <i class="fas fa-calculator mr-2"></i>
                         <span>mr-math</span>
                     </a>
@@ -553,190 +553,187 @@
 
     <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 mt-16">
         
-<div class="bg-white">
-    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-        <div class="lg:text-center mb-12">
-            <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-black text-white">
-                Module
-            </span>
-            <h2 class="mt-4 text-4xl font-extrabold tracking-tight text-black sm:text-5xl">
-                mr-graphics
-            </h2>
-            <p class="mt-4 max-w-2xl text-xl text-gray-700 lg:mx-auto">
-                Modern graphics library for realistic 3D rendering
+<div class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="lg:text-center">
+            <span class="inline-block px-3 py-1 text-xs font-semibold tracking-widest text-white bg-black rounded-full">ВОЗМОЖНОСТИ</span>
+            <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-black sm:text-4xl">
+                Техническое совершенство
             </p>
-            <a href="https://github.com/4j-company/mr-graphics" class="mt-4 inline-flex items-center px-3 py-2 text-sm font-medium rounded-md text-white bg-black hover:bg-gray-800">
-                <i class="fab fa-github mr-2"></i> View on GitHub
-            </a>
+            <p class="mt-4 max-w-2xl text-xl text-gray-800 lg:mx-auto">
+                model-renderer предоставляет полный набор функций для создания высокопроизводительных игр.
+            </p>
         </div>
 
-        <div class="mt-10">
-            <div class="space-y-10">
-                <div class="prose prose-lg mx-auto">
-                    <div class="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-8 mb-8 border border-gray-200">
-                        <h3 class="text-2xl font-bold text-black mb-4 !mt-0">Overview</h3>
-                        <p class="text-lg text-gray-800 leading-relaxed">
-                            mr-graphics is a modern rendering engine designed for high-performance visualization of 3D models. It supports physically-based lighting, advanced materials, and is optimized for high performance.
-                        </p>
+        <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            
+            <div class="high-contrast-card p-6 rounded-lg">
+                <div class="flex items-center mb-4">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-black text-white mr-4">
+                        <i class="fas fa-tachometer-alt"></i>
                     </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                        <div class="high-contrast-card rounded-xl p-6">
-                            <h4 class="text-lg font-semibold text-black mb-4 !mt-0">Core Features</h4>
-                            <ul class="space-y-3">
-                                <li class="flex items-start space-x-3">
-                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
-                                        <i class="fas fa-bolt text-white text-sm"></i>
-                                    </span>
-                                    <span class="text-gray-800">Support for Physically Based Rendering (PBR) for realistic materials</span>
-                                </li>
-                                <li class="flex items-start space-x-3">
-                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
-                                        <i class="fas fa-microchip text-white text-sm"></i>
-                                    </span>
-                                    <span class="text-gray-800">Optimized rendering pipeline with instancing support</span>
-                                </li>
-                                <li class="flex items-start space-x-3">
-                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
-                                        <i class="fas fa-layer-group text-white text-sm"></i>
-                                    </span>
-                                    <span class="text-gray-800">Flexible shader system with hot-reloading capabilities</span>
-                                </li>
-                                <li class="flex items-start space-x-3">
-                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
-                                        <i class="fas fa-memory text-white text-sm"></i>
-                                    </span>
-                                    <span class="text-gray-800">Integrated post-processing system</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="high-contrast-card rounded-xl p-6">
-                            <h4 class="text-lg font-semibold text-black mb-4 !mt-0">Rendering Capabilities</h4>
-                            <ul class="space-y-3">
-                                <li class="flex items-start space-x-3">
-                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
-                                        <i class="fas fa-lightbulb text-white text-sm"></i>
-                                    </span>
-                                    <span class="text-gray-800">Realistic lighting system with support for various light sources</span>
-                                </li>
-                                <li class="flex items-start space-x-3">
-                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
-                                        <i class="fas fa-sun text-white text-sm"></i>
-                                    </span>
-                                    <span class="text-gray-800">Advanced material system with support for transparency and reflections</span>
-                                </li>
-                                <li class="flex items-start space-x-3">
-                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
-                                        <i class="fas fa-tint text-white text-sm"></i>
-                                    </span>
-                                    <span class="text-gray-800">High-quality post-processing effects, including SSAO and bloom</span>
-                                </li>
-                                <li class="flex items-start space-x-3">
-                                    <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
-                                        <i class="fas fa-magic text-white text-sm"></i>
-                                    </span>
-                                    <span class="text-gray-800">Support for various shadow types, from basic to cascaded shadow maps</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8">
-                        <h4 class="text-lg font-semibold text-black mb-4 !mt-0">Technical Specifications</h4>
-                        <div class="overflow-x-auto">
-                            <table class="min-w-full divide-y divide-gray-200">
-                                <thead>
-                                    <tr>
-                                        <th class="px-4 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Feature</th>
-                                        <th class="px-4 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Specification</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="bg-white divide-y divide-gray-200">
-                                    <tr>
-                                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">Graphics API</td>
-                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">Vulkan 1.3</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">Shader Language</td>
-                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">GLSL, HLSL (with internal converter)</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">Memory Management</td>
-                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">Custom pool allocator with defragmentation</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">Ray Tracing</td>
-                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">VK_KHR_ray_tracing_pipeline</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">Mesh Shading</td>
-                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">VK_EXT_mesh_shader</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8">
-                        <h4 class="text-lg font-semibold text-black mb-4 !mt-0">Example Usage</h4>
-                        <div class="bg-gray-900 rounded-lg p-4">
-                            <pre class="language-cpp"><code class="language-cpp">// Initialize the graphics context
-mr::graphics::Context context;
-context.initialize(window.getNativeHandle());
-
-// Create a renderer
-mr::graphics::Renderer renderer(context);
-
-// Load a mesh
-auto mesh = mr::importer::load_mesh("models/character.gltf");
-
-// Create material
-auto material = renderer.createMaterial("shaders/pbr.glsl");
-material->setTexture("albedo", loadTexture("textures/albedo.png"));
-material->setTexture("normal", loadTexture("textures/normal.png"));
-material->setTexture("metallic", loadTexture("textures/metallic.png"));
-material->setTexture("roughness", loadTexture("textures/roughness.png"));
-
-// Set up scene and camera
-auto scene = renderer.createScene();
-auto camera = scene->createCamera();
-camera->setPosition({0, 1.7f, 5});
-camera->lookAt({0, 0, 0});
-
-// Add mesh to scene
-auto entity = scene->createEntity();
-entity->setMesh(mesh);
-entity->setMaterial(material);
-
-// Main render loop
-while (window.isOpen()) {
-    renderer.beginFrame();
-    scene->update(deltaTime);
-    renderer.renderScene(scene, camera);
-    renderer.endFrame();
-    window.swapBuffers();
-}</code></pre>
-                        </div>
-                    </div>
-
-                    <div class="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-6">
-                        <div class="flex items-start space-x-4">
-                            <div class="flex-shrink-0">
-                                <div class="h-12 w-12 rounded-full bg-black flex items-center justify-center">
-                                    <i class="fas fa-lightbulb text-white text-xl"></i>
-                                </div>
-                            </div>
-                            <div class="pro-tip-content" style="position: relative; z-index: 5;">
-                                <h3 class="text-lg font-semibold text-black !mt-0 !mb-2" style="position: relative; z-index: 10; display: block;">Pro Tip</h3>
-                                <p class="mt-2 text-gray-800">
-                                    For best performance, use the instancing system when rendering multiple identical objects such as trees or particles. This can significantly reduce GPU overhead and improve frame rates.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    <h3 class="text-lg font-bold text-black">Высокая производительность</h3>
                 </div>
+                <p class="text-gray-800">
+                    Создан с нуля с учетом производительности, используя многопоточность и SIMD-оптимизации.
+                </p>
+                <ul class="mt-4 space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Многозадачный параллелизм</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>SIMD векторные операции</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Дизайн, ориентированный на данные</span>
+                    </li>
+                </ul>
             </div>
+
+            
+            <div class="high-contrast-card p-6 rounded-lg">
+                <div class="flex items-center mb-4">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-black text-white mr-4">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-black">Продвинутый рендеринг</h3>
+                </div>
+                <p class="text-gray-800">
+                    Современный конвейер рендеринга на основе Vulkan с физически обоснованными материалами и освещением.
+                </p>
+                <ul class="mt-4 space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>PBR материалы</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Трассировка лучей для отражений</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Эффекты постобработки</span>
+                    </li>
+                </ul>
+            </div>
+
+            
+            <div class="high-contrast-card p-6 rounded-lg">
+                <div class="flex items-center mb-4">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-black text-white mr-4">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-black">Модульная архитектура</h3>
+                </div>
+                <p class="text-gray-800">
+                    Набор независимых модулей, которые можно использовать вместе или по отдельности в ваших проектах.
+                </p>
+                <ul class="mt-4 space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Слабо связанный дизайн</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Минимальные зависимости</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Чёткие API границы</span>
+                    </li>
+                </ul>
+            </div>
+
+            
+            <div class="high-contrast-card p-6 rounded-lg">
+                <div class="flex items-center mb-4">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-black text-white mr-4">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-black">Кросс-платформенность</h3>
+                </div>
+                <p class="text-gray-800">
+                    Поддержка нескольких платформ с согласованным поведением и производительностью.
+                </p>
+                <ul class="mt-4 space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Windows, macOS, Linux</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>iOS и Android</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Консольные платформы</span>
+                    </li>
+                </ul>
+            </div>
+
+            
+            <div class="high-contrast-card p-6 rounded-lg">
+                <div class="flex items-center mb-4">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-black text-white mr-4">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-black">Современный C++</h3>
+                </div>
+                <p class="text-gray-800">
+                    Построен на C++23, используя последние возможности языка для безопасности и производительности.
+                </p>
+                <ul class="mt-4 space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Типобезопасность</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Вычисления на этапе компиляции</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Чистый, читаемый код</span>
+                    </li>
+                </ul>
+            </div>
+
+            
+            <div class="high-contrast-card p-6 rounded-lg">
+                <div class="flex items-center mb-4">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-black text-white mr-4">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-black">Инструменты разработчика</h3>
+                </div>
+                <p class="text-gray-800">
+                    Комплексные инструменты для управления ресурсами, отладки и профилирования.
+                </p>
+                <ul class="mt-4 space-y-2">
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Конвейер ресурсов</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Профилирование производительности</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check text-black mr-2"></i>
+                        <span>Отладка памяти</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-16 text-center">
+            <p class="text-xl font-bold text-black mb-6">Готовы начать разработку с model-renderer?</p>
+            <a href="/download/index_ru.html" class="high-contrast-btn inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm">
+                Начать <i class="fas fa-arrow-right ml-2"></i>
+            </a>
         </div>
     </div>
 </div>
@@ -746,7 +743,7 @@ while (window.isOpen()) {
     <footer class="bg-white border-t border-gray-200 mt-8">
         <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
             <p class="text-center text-black text-sm">
-                © 2025 model-renderer. All rights reserved.
+                © 2025 model-renderer. Все права защищены.
             </p>
         </div>
     </footer>

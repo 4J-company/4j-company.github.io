@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -429,6 +430,12 @@
     </style>
 </head>
 <body class="bg-white text-black">
+    <script>
+        console.log("Page language: English");
+        console.log("Current path:", window.location.pathname);
+    </script>
+    
+    
     <nav class="bg-white shadow-sm nav-auto-hide">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex justify-between h-16">
@@ -443,10 +450,10 @@
                         <a href="/" class="nav-link border-transparent text-black hover:text-black inline-flex items-center px-1 pt-1 text-sm font-medium">
                             Home
                         </a>
-                        <a href="/features" class="nav-link border-transparent text-black hover:text-black inline-flex items-center px-1 pt-1 text-sm font-medium">
+                        <a href="/features/index.html" class="nav-link border-transparent text-black hover:text-black inline-flex items-center px-1 pt-1 text-sm font-medium">
                             Features
                         </a>
-                        <a href="/examples" class="nav-link border-transparent text-black hover:text-black inline-flex items-center px-1 pt-1 text-sm font-medium">
+                        <a href="/examples/index.html" class="nav-link border-transparent text-black hover:text-black inline-flex items-center px-1 pt-1 text-sm font-medium">
                             Examples
                         </a>
                         <div class="nav-dropdown">
@@ -477,7 +484,18 @@
                 </div>
                 
                 
+                <div class="hidden sm:flex sm:items-center">
+                    <button onclick="switchLanguage()" class="inline-flex items-center px-3 py-1 text-sm font-medium rounded-md text-white bg-black hover:bg-gray-800 border border-gray-700 transition-all duration-200">
+                        <span class="mr-1">🇷🇺</span>
+                        <span>Русский</span>
+                    </button>
+                </div>
+                
+                
                 <div class="flex items-center sm:hidden">
+                    <button onclick="switchLanguage()" class="mr-4 inline-flex items-center px-2 py-1 text-sm font-medium rounded-md text-white bg-black">
+                        🇷🇺
+                    </button>
                     <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
                         <span class="mobile-menu-icon"></span>
                     </button>
@@ -493,11 +511,11 @@
                 <i class="fas fa-home mr-2"></i>
                 Home
             </a>
-            <a href="/features" class="mobile-menu-link">
+            <a href="/features/index.html" class="mobile-menu-link">
                 <i class="fas fa-star mr-2"></i>
                 Features
             </a>
-            <a href="/examples" class="mobile-menu-link">
+            <a href="/examples/index.html" class="mobile-menu-link">
                 <i class="fas fa-image mr-2"></i>
                 Examples
             </a>
@@ -545,19 +563,18 @@
                         <span class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-widest text-white bg-black rounded-full">MODULAR DESIGN</span>
                         <h1 class="text-4xl tracking-tight font-extrabold text-black sm:text-5xl md:text-6xl">
                             <span class="block">model-renderer</span>
-                            <span class="block">Game Engine</span>
                         </h1>
                         <p class="mt-3 text-base text-gray-800 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                            Create stunning games with our powerful and intuitive game engine. Built for performance, flexibility, and modular architecture.
+                            A modern modular game engine combining high performance with architectural flexibility.
                         </p>
                         <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                             <div class="rounded-md shadow">
-                                <a href="/download" class="high-contrast-btn w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md md:py-4 md:text-lg md:px-10">
+                                <a href="/download/index.html" class="high-contrast-btn w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md md:py-4 md:text-lg md:px-10">
                                     Get Started
                                 </a>
                             </div>
                             <div class="mt-3 sm:mt-0 sm:ml-3">
-                                <a href="/docs" class="w-full flex items-center justify-center px-8 py-3 border border-black text-base font-medium rounded-md text-black bg-white hover:bg-gray-100 md:py-4 md:text-lg md:px-10">
+                                <a href="/docs/index.html" class="w-full flex items-center justify-center px-8 py-3 border border-black text-base font-medium rounded-md text-black bg-white hover:bg-gray-100 md:py-4 md:text-lg md:px-10">
                                     Documentation
                                 </a>
                             </div>
@@ -578,10 +595,10 @@
             <div class="lg:text-center">
                 <span class="inline-block px-3 py-1 text-xs font-semibold tracking-widest text-white bg-black rounded-full">MODULES</span>
                 <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-black sm:text-4xl">
-                    A Complete Game Development Ecosystem
+                    A Modular Ecosystem
                 </p>
                 <p class="mt-4 max-w-2xl text-xl text-gray-800 lg:mx-auto">
-                    model-renderer provides a comprehensive set of modules to streamline your game development workflow.
+                    model-renderer consists of specialized modules that can be used together or independently in your project.
                 </p>
             </div>
 
@@ -596,7 +613,7 @@
                             <p class="text-lg leading-6 font-bold text-black">mr-graphics</p>
                         </div>
                         <p class="text-base text-gray-800">
-                            High-performance Vulkan-based rendering with PBR materials, dynamic lighting, and advanced post-processing effects.
+                            Powerful rendering engine with support for modern lighting and material techniques
                         </p>
                         <a href="/subprojects/mr-graphics" class="mt-4 inline-flex items-center text-sm font-medium text-black">
                             Learn more <i class="fas fa-arrow-right ml-1"></i>
@@ -612,7 +629,7 @@
                             <p class="text-lg leading-6 font-bold text-black">mr-math</p>
                         </div>
                         <p class="text-base text-gray-800">
-                            SIMD-optimized mathematical operations with vectors, matrices, quaternions, and geometric primitives.
+                            High-performance math library optimized for graphics and physics calculations
                         </p>
                         <a href="/subprojects/mr-math" class="mt-4 inline-flex items-center text-sm font-medium text-black">
                             Learn more <i class="fas fa-arrow-right ml-1"></i>
@@ -628,7 +645,7 @@
                             <p class="text-lg leading-6 font-bold text-black">mr-importer</p>
                         </div>
                         <p class="text-base text-gray-800">
-                            Efficient asset pipeline with asset optimization, dependency tracking, and support for various 3D formats.
+                            Versatile import system supporting multiple 3D model and texture formats
                         </p>
                         <a href="/subprojects/mr-importer" class="mt-4 inline-flex items-center text-sm font-medium text-black">
                             Learn more <i class="fas fa-arrow-right ml-1"></i>
@@ -644,7 +661,7 @@
                             <p class="text-lg leading-6 font-bold text-black">mr-contractor</p>
                         </div>
                         <p class="text-base text-gray-800">
-                            Task-based job system for multi-threaded operations with work stealing and efficient thread balancing.
+                            Resource and task management system optimizing multi-threaded execution
                         </p>
                         <a href="/subprojects/mr-contractor" class="mt-4 inline-flex items-center text-sm font-medium text-black">
                             Learn more <i class="fas fa-arrow-right ml-1"></i>
@@ -665,7 +682,7 @@
                 </p>
             </div>
             <div class="mt-10 text-center">
-                <a href="/examples" class="high-contrast-btn inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm">
+                <a href="/examples/index.html" class="high-contrast-btn inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm">
                     View Examples <i class="fas fa-arrow-right ml-2"></i>
                 </a>
             </div>
@@ -678,7 +695,7 @@
     <footer class="bg-white border-t border-gray-200 mt-8">
         <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
             <p class="text-center text-black text-sm">
-                © 2024 4J. All rights reserved. model-renderer™
+                © 2025 model-renderer. All rights reserved.
             </p>
         </div>
     </footer>
@@ -874,6 +891,41 @@
                 });
             }
         });
+
+        function switchLanguage() {
+    // Get the current path and check if we're on a Russian page
+    const path = window.location.pathname;
+    const isRussian = path.includes('_ru.html');
+    
+    // Determine the new path
+    let newPath;
+    if (isRussian) {
+        // Switch from Russian to English
+        newPath = path.replace('_ru.html', '.html');
+    } else {
+        // Switch from English to Russian
+        newPath = path.replace('.html', '_ru.html');
+    }
+    
+    // Handle special case for index page
+    if (path === '/' || path === '/index.html') {
+        newPath = '/index_ru.html';
+    } else if (path === '/index_ru.html') {
+        newPath = '/index.html';
+    }
+    
+    // Handle case for paths ending with slash
+    if (path.endsWith('/')) {
+        if (isRussian) {
+            newPath = path + 'index.html';
+        } else {
+            newPath = path + 'index_ru.html';
+        }
+    }
+    
+    console.log('Switching language from', path, 'to', newPath);
+    window.location.href = newPath;
+}
     </script>
     
     
@@ -892,4 +944,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
 </body>
-</html> 
+</html>

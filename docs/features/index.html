@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -429,6 +430,12 @@
     </style>
 </head>
 <body class="bg-white text-black">
+    <script>
+        console.log("Page language: English");
+        console.log("Current path:", window.location.pathname);
+    </script>
+    
+    
     <nav class="bg-white shadow-sm nav-auto-hide">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex justify-between h-16">
@@ -443,10 +450,10 @@
                         <a href="/" class="nav-link border-transparent text-black hover:text-black inline-flex items-center px-1 pt-1 text-sm font-medium">
                             Home
                         </a>
-                        <a href="/features" class="nav-link border-transparent text-black hover:text-black inline-flex items-center px-1 pt-1 text-sm font-medium">
+                        <a href="/features/index.html" class="nav-link border-transparent text-black hover:text-black inline-flex items-center px-1 pt-1 text-sm font-medium">
                             Features
                         </a>
-                        <a href="/examples" class="nav-link border-transparent text-black hover:text-black inline-flex items-center px-1 pt-1 text-sm font-medium">
+                        <a href="/examples/index.html" class="nav-link border-transparent text-black hover:text-black inline-flex items-center px-1 pt-1 text-sm font-medium">
                             Examples
                         </a>
                         <div class="nav-dropdown">
@@ -477,7 +484,18 @@
                 </div>
                 
                 
+                <div class="hidden sm:flex sm:items-center">
+                    <button onclick="switchLanguage()" class="inline-flex items-center px-3 py-1 text-sm font-medium rounded-md text-white bg-black hover:bg-gray-800 border border-gray-700 transition-all duration-200">
+                        <span class="mr-1">🇷🇺</span>
+                        <span>Русский</span>
+                    </button>
+                </div>
+                
+                
                 <div class="flex items-center sm:hidden">
+                    <button onclick="switchLanguage()" class="mr-4 inline-flex items-center px-2 py-1 text-sm font-medium rounded-md text-white bg-black">
+                        🇷🇺
+                    </button>
                     <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
                         <span class="mobile-menu-icon"></span>
                     </button>
@@ -493,11 +511,11 @@
                 <i class="fas fa-home mr-2"></i>
                 Home
             </a>
-            <a href="/features" class="mobile-menu-link">
+            <a href="/features/index.html" class="mobile-menu-link">
                 <i class="fas fa-star mr-2"></i>
                 Features
             </a>
-            <a href="/examples" class="mobile-menu-link">
+            <a href="/examples/index.html" class="mobile-menu-link">
                 <i class="fas fa-image mr-2"></i>
                 Examples
             </a>
@@ -713,7 +731,7 @@
 
         <div class="mt-16 text-center">
             <p class="text-xl font-bold text-black mb-6">Ready to start building with model-renderer?</p>
-            <a href="/download" class="high-contrast-btn inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm">
+            <a href="/download/index.html" class="high-contrast-btn inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm">
                 Get Started <i class="fas fa-arrow-right ml-2"></i>
             </a>
         </div>
@@ -725,7 +743,7 @@
     <footer class="bg-white border-t border-gray-200 mt-8">
         <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
             <p class="text-center text-black text-sm">
-                © 2024 4J. All rights reserved. model-renderer™
+                © 2025 model-renderer. All rights reserved.
             </p>
         </div>
     </footer>
@@ -921,6 +939,41 @@
                 });
             }
         });
+
+        function switchLanguage() {
+    // Get the current path and check if we're on a Russian page
+    const path = window.location.pathname;
+    const isRussian = path.includes('_ru.html');
+    
+    // Determine the new path
+    let newPath;
+    if (isRussian) {
+        // Switch from Russian to English
+        newPath = path.replace('_ru.html', '.html');
+    } else {
+        // Switch from English to Russian
+        newPath = path.replace('.html', '_ru.html');
+    }
+    
+    // Handle special case for index page
+    if (path === '/' || path === '/index.html') {
+        newPath = '/index_ru.html';
+    } else if (path === '/index_ru.html') {
+        newPath = '/index.html';
+    }
+    
+    // Handle case for paths ending with slash
+    if (path.endsWith('/')) {
+        if (isRussian) {
+            newPath = path + 'index.html';
+        } else {
+            newPath = path + 'index_ru.html';
+        }
+    }
+    
+    console.log('Switching language from', path, 'to', newPath);
+    window.location.href = newPath;
+}
     </script>
     
     
@@ -939,4 +992,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
 </body>
-</html> 
+</html>
