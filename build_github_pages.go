@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strings"
 	"time"
 )
@@ -231,98 +232,123 @@ func (g *GitHubPagesGenerator) fixLanguageLinks() {
 			fileContent := string(content)
 			isRussian := strings.Contains(path, "_ru.html")
 
-			// Replace the switchLanguage function with a more robust one for GitHub Pages
+			// Fix base URL tag which might not be rendering correctly
 			fileContent = strings.Replace(fileContent,
-				`function switchLanguage() {
-            const currentUrl = new URL(window.location.href);
-            const currentLang = currentUrl.searchParams.get('lang') || 'en';
-            const newLang = currentLang === 'en' ? 'ru' : 'en';
-            
-            // Remove any existing lang parameter and add the new one
-            currentUrl.searchParams.delete('lang');
-            currentUrl.searchParams.set('lang', newLang);
-            
-            // Switch language without animation
-            window.location.href = currentUrl.toString();
-        }`,
-				`function switchLanguage() {
-            // For GitHub Pages, we use separate HTML files for different languages
-            const path = window.location.pathname;
-            const isRoot = path === "/" || path.endsWith("/");
-            const isRussian = path.includes("_ru.html") || path.endsWith("_ru/");
-            
-            let newPath;
-            if (isRussian) {
-                // Switch from Russian to English
-                if (isRoot) {
-                    newPath = "/";
-                } else {
-                    newPath = path.replace("_ru.html", ".html").replace("_ru/", "/");
-                }
-            } else {
-                // Switch from English to Russian
-                if (isRoot) {
-                    newPath = "/index_ru.html";
-                } else if (path.endsWith("/")) {
-                    newPath = path + "index_ru.html";
-                } else if (path.endsWith(".html")) {
-                    newPath = path.replace(".html", "_ru.html");
-                } else {
-                    // Path without .html extension
-                    const lastSlashIndex = path.lastIndexOf("/");
-                    if (lastSlashIndex !== -1) {
-                        const basePath = path.substring(0, lastSlashIndex + 1);
-                        const pageName = path.substring(lastSlashIndex + 1);
-                        newPath = basePath + pageName + "_ru.html";
-                    } else {
-                        newPath = path + "_ru.html";
-                    }
-                }
-            }
-            window.location.href = newPath;
-        }`,
-				-1)
-
-			// Replace dynamic links with static ones
-			if isRussian {
-				// For Russian pages, ensure links point to Russian versions
-				fileContent = strings.Replace(fileContent, `href="/"`, `href="/index.html"`, -1)
-				fileContent = strings.Replace(fileContent, `href="{{if eq .Lang "ru"}}/?lang=ru{{else}}/{{end}}"`, `href="/index_ru.html"`, -1)
-				fileContent = strings.Replace(fileContent, `href="{{if eq .Lang "ru"}}/features?lang=ru{{else}}/features{{end}}"`, `href="/features/index_ru.html"`, -1)
-				fileContent = strings.Replace(fileContent, `href="{{if eq .Lang "ru"}}/examples?lang=ru{{else}}/examples{{end}}"`, `href="/examples/index_ru.html"`, -1)
-				fileContent = strings.Replace(fileContent, `href="{{if eq .Lang "ru"}}/docs?lang=ru{{else}}/docs{{end}}"`, `href="/docs/index_ru.html"`, -1)
-				fileContent = strings.Replace(fileContent, `href="{{if eq .Lang "ru"}}/download?lang=ru{{else}}/download{{end}}"`, `href="/download/index_ru.html"`, -1)
-
-				// Fix subproject links
-				fileContent = strings.Replace(fileContent, `href="{{if eq .Lang "ru"}}/subprojects/mr-graphics?lang=ru{{else}}/subprojects/mr-graphics{{end}}"`, `href="/subprojects/mr-graphics/index_ru.html"`, -1)
-				fileContent = strings.Replace(fileContent, `href="{{if eq .Lang "ru"}}/subprojects/mr-math?lang=ru{{else}}/subprojects/mr-math{{end}}"`, `href="/subprojects/mr-math/index_ru.html"`, -1)
-				fileContent = strings.Replace(fileContent, `href="{{if eq .Lang "ru"}}/subprojects/mr-importer?lang=ru{{else}}/subprojects/mr-importer{{end}}"`, `href="/subprojects/mr-importer/index_ru.html"`, -1)
-				fileContent = strings.Replace(fileContent, `href="{{if eq .Lang "ru"}}/subprojects/mr-contractor?lang=ru{{else}}/subprojects/mr-contractor{{end}}"`, `href="/subprojects/mr-contractor/index_ru.html"`, -1)
-			} else {
-				// For English pages, ensure links point to English versions
-				fileContent = strings.Replace(fileContent, `href="{{if eq .Lang "ru"}}/?lang=ru{{else}}/{{end}}"`, `href="/index.html"`, -1)
-				fileContent = strings.Replace(fileContent, `href="{{if eq .Lang "ru"}}/features?lang=ru{{else}}/features{{end}}"`, `href="/features/index.html"`, -1)
-				fileContent = strings.Replace(fileContent, `href="{{if eq .Lang "ru"}}/examples?lang=ru{{else}}/examples{{end}}"`, `href="/examples/index.html"`, -1)
-				fileContent = strings.Replace(fileContent, `href="{{if eq .Lang "ru"}}/docs?lang=ru{{else}}/docs{{end}}"`, `href="/docs/index.html"`, -1)
-				fileContent = strings.Replace(fileContent, `href="{{if eq .Lang "ru"}}/download?lang=ru{{else}}/download{{end}}"`, `href="/download/index.html"`, -1)
-
-				// Fix subproject links
-				fileContent = strings.Replace(fileContent, `href="{{if eq .Lang "ru"}}/subprojects/mr-graphics?lang=ru{{else}}/subprojects/mr-graphics{{end}}"`, `href="/subprojects/mr-graphics/index.html"`, -1)
-				fileContent = strings.Replace(fileContent, `href="{{if eq .Lang "ru"}}/subprojects/mr-math?lang=ru{{else}}/subprojects/mr-math{{end}}"`, `href="/subprojects/mr-math/index.html"`, -1)
-				fileContent = strings.Replace(fileContent, `href="{{if eq .Lang "ru"}}/subprojects/mr-importer?lang=ru{{else}}/subprojects/mr-importer{{end}}"`, `href="/subprojects/mr-importer/index.html"`, -1)
-				fileContent = strings.Replace(fileContent, `href="{{if eq .Lang "ru"}}/subprojects/mr-contractor?lang=ru{{else}}/subprojects/mr-contractor{{end}}"`, `href="/subprojects/mr-contractor/index.html"`, -1)
-			}
-
-			// For both language versions, add base href to ensure absolute paths work
-			// This is important for GitHub Pages, especially with custom domains or repository paths
-			fileContent = strings.Replace(fileContent,
-				`<meta charset="UTF-8">`,
 				`<meta charset="UTF-8">
     <base href="{{ .BaseURL }}">`,
+				`<meta charset="UTF-8">
+    <base href="/">`,
 				-1)
 
+			// Replace the switchLanguage function with a completely rewritten version for GitHub Pages
+			switchFunctionPattern := `function switchLanguage\(\) \{[\s\S]*?window\.location\.href = [\s\S]*?\}`
+			newSwitchFunction := `function switchLanguage() {
+    // Get the current path and check if we're on a Russian page
+    const path = window.location.pathname;
+    const isRussian = path.includes('_ru.html');
+    
+    // Determine the new path
+    let newPath;
+    if (isRussian) {
+        // Switch from Russian to English
+        newPath = path.replace('_ru.html', '.html');
+    } else {
+        // Switch from English to Russian
+        newPath = path.replace('.html', '_ru.html');
+    }
+    
+    // Handle special case for index page
+    if (path === '/' || path === '/index.html') {
+        newPath = '/index_ru.html';
+    } else if (path === '/index_ru.html') {
+        newPath = '/index.html';
+    }
+    
+    // Handle case for paths ending with slash
+    if (path.endsWith('/')) {
+        if (isRussian) {
+            newPath = path + 'index.html';
+        } else {
+            newPath = path + 'index_ru.html';
+        }
+    }
+    
+    console.log('Switching language from', path, 'to', newPath);
+    window.location.href = newPath;
+}`
+
+			// Use regex to find and replace the switchLanguage function
+			re := regexp.MustCompile(switchFunctionPattern)
+			fileContent = re.ReplaceAllString(fileContent, newSwitchFunction)
+
+			// Clean up any duplicated debug messages
+			fileContent = strings.Replace(fileContent,
+				`">
+    // Debug message for language switching
+    console.log("Language switching is set up. Current path:", window.location.pathname);
+</script>`,
+				`"></script>`,
+				-1)
+
+			// Replace dynamic links with static ones for both language versions
+			if isRussian {
+				// For Russian pages, ensure links point to Russian versions
+				fileContent = replaceLink(fileContent, `href="/"`, `href="/index.html"`)
+				fileContent = replaceLink(fileContent, `href="{{if eq .Lang "ru"}}/?lang=ru{{else}}/{{end}}"`, `href="/index_ru.html"`)
+				fileContent = replaceLink(fileContent, `href="{{if eq .Lang "ru"}}/features?lang=ru{{else}}/features{{end}}"`, `href="/features/index_ru.html"`)
+				fileContent = replaceLink(fileContent, `href="{{if eq .Lang "ru"}}/examples?lang=ru{{else}}/examples{{end}}"`, `href="/examples/index_ru.html"`)
+				fileContent = replaceLink(fileContent, `href="{{if eq .Lang "ru"}}/docs?lang=ru{{else}}/docs{{end}}"`, `href="/docs/index_ru.html"`)
+				fileContent = replaceLink(fileContent, `href="{{if eq .Lang "ru"}}/download?lang=ru{{else}}/download{{end}}"`, `href="/download/index_ru.html"`)
+
+				// Fix subproject links
+				fileContent = replaceLink(fileContent, `href="{{if eq .Lang "ru"}}/subprojects/mr-graphics?lang=ru{{else}}/subprojects/mr-graphics{{end}}"`, `href="/subprojects/mr-graphics/index_ru.html"`)
+				fileContent = replaceLink(fileContent, `href="{{if eq .Lang "ru"}}/subprojects/mr-math?lang=ru{{else}}/subprojects/mr-math{{end}}"`, `href="/subprojects/mr-math/index_ru.html"`)
+				fileContent = replaceLink(fileContent, `href="{{if eq .Lang "ru"}}/subprojects/mr-importer?lang=ru{{else}}/subprojects/mr-importer{{end}}"`, `href="/subprojects/mr-importer/index_ru.html"`)
+				fileContent = replaceLink(fileContent, `href="{{if eq .Lang "ru"}}/subprojects/mr-contractor?lang=ru{{else}}/subprojects/mr-contractor{{end}}"`, `href="/subprojects/mr-contractor/index_ru.html"`)
+			} else {
+				// For English pages, ensure links point to English versions
+				fileContent = replaceLink(fileContent, `href="{{if eq .Lang "ru"}}/?lang=ru{{else}}/{{end}}"`, `href="/index.html"`)
+				fileContent = replaceLink(fileContent, `href="{{if eq .Lang "ru"}}/features?lang=ru{{else}}/features{{end}}"`, `href="/features/index.html"`)
+				fileContent = replaceLink(fileContent, `href="{{if eq .Lang "ru"}}/examples?lang=ru{{else}}/examples{{end}}"`, `href="/examples/index.html"`)
+				fileContent = replaceLink(fileContent, `href="{{if eq .Lang "ru"}}/docs?lang=ru{{else}}/docs{{end}}"`, `href="/docs/index.html"`)
+				fileContent = replaceLink(fileContent, `href="{{if eq .Lang "ru"}}/download?lang=ru{{else}}/download{{end}}"`, `href="/download/index.html"`)
+
+				// Fix subproject links
+				fileContent = replaceLink(fileContent, `href="{{if eq .Lang "ru"}}/subprojects/mr-graphics?lang=ru{{else}}/subprojects/mr-graphics{{end}}"`, `href="/subprojects/mr-graphics/index.html"`)
+				fileContent = replaceLink(fileContent, `href="{{if eq .Lang "ru"}}/subprojects/mr-math?lang=ru{{else}}/subprojects/mr-math{{end}}"`, `href="/subprojects/mr-math/index.html"`)
+				fileContent = replaceLink(fileContent, `href="{{if eq .Lang "ru"}}/subprojects/mr-importer?lang=ru{{else}}/subprojects/mr-importer{{end}}"`, `href="/subprojects/mr-importer/index.html"`)
+				fileContent = replaceLink(fileContent, `href="{{if eq .Lang "ru"}}/subprojects/mr-contractor?lang=ru{{else}}/subprojects/mr-contractor{{end}}"`, `href="/subprojects/mr-contractor/index.html"`)
+			}
+
+			// Fix any direct links that might have been added during the page generation process
+			// These would be links with no templates that need to be fixed for GitHub Pages
+			if isRussian {
+				// Fix standard links that have ?lang=ru format to use index_ru.html format
+				fileContent = replaceLink(fileContent, `href="/?lang=ru"`, `href="/index_ru.html"`)
+				fileContent = replaceLink(fileContent, `href="/features?lang=ru"`, `href="/features/index_ru.html"`)
+				fileContent = replaceLink(fileContent, `href="/examples?lang=ru"`, `href="/examples/index_ru.html"`)
+				fileContent = replaceLink(fileContent, `href="/docs?lang=ru"`, `href="/docs/index_ru.html"`)
+				fileContent = replaceLink(fileContent, `href="/download?lang=ru"`, `href="/download/index_ru.html"`)
+
+				// Fix subproject links
+				fileContent = replaceLink(fileContent, `href="/subprojects/mr-graphics?lang=ru"`, `href="/subprojects/mr-graphics/index_ru.html"`)
+				fileContent = replaceLink(fileContent, `href="/subprojects/mr-math?lang=ru"`, `href="/subprojects/mr-math/index_ru.html"`)
+				fileContent = replaceLink(fileContent, `href="/subprojects/mr-importer?lang=ru"`, `href="/subprojects/mr-importer/index_ru.html"`)
+				fileContent = replaceLink(fileContent, `href="/subprojects/mr-contractor?lang=ru"`, `href="/subprojects/mr-contractor/index_ru.html"`)
+
+				fileContent = replaceLink(fileContent, `href="/examples"`, `href="/examples/index_ru.html"`)
+				fileContent = replaceLink(fileContent, `href="/features"`, `href="/features/index_ru.html"`)
+				fileContent = replaceLink(fileContent, `href="/docs"`, `href="/docs/index_ru.html"`)
+				fileContent = replaceLink(fileContent, `href="/download"`, `href="/download/index_ru.html"`)
+			} else {
+				fileContent = replaceLink(fileContent, `href="/examples"`, `href="/examples/index.html"`)
+				fileContent = replaceLink(fileContent, `href="/features"`, `href="/features/index.html"`)
+				fileContent = replaceLink(fileContent, `href="/docs"`, `href="/docs/index.html"`)
+				fileContent = replaceLink(fileContent, `href="/download"`, `href="/download/index.html"`)
+			}
+
 			// Fix language switch button visibility
-			// The issue could be with the conditional templates in layout.html not evaluating correctly
+			// Make sure it displays the correct flag and text
 			if isRussian {
 				fileContent = strings.Replace(fileContent,
 					`{{if eq .Lang "en"}}🇷🇺{{else}}🇺🇸{{end}}`,
@@ -343,13 +369,14 @@ func (g *GitHubPagesGenerator) fixLanguageLinks() {
 					-1)
 			}
 
-			// Add a console message for debugging purposes
+			// Add a prominent debug message at the top of the page
 			fileContent = strings.Replace(fileContent,
-				`</script>`,
-				`
-    // Debug message for language switching
-    console.log("Language switching is set up. Current path:", window.location.pathname);
-</script>`,
+				`<body class="bg-white text-black">`,
+				`<body class="bg-white text-black">
+    <script>
+        console.log("Page language: `+getLanguageDisplay(isRussian)+`");
+        console.log("Current path:", window.location.pathname);
+    </script>`,
 				-1)
 
 			// Write modified content back to file
@@ -367,6 +394,19 @@ func (g *GitHubPagesGenerator) fixLanguageLinks() {
 	if err != nil {
 		log.Fatalf("Error fixing language links: %v", err)
 	}
+}
+
+// Helper function for language display
+func getLanguageDisplay(isRussian bool) string {
+	if isRussian {
+		return "Russian"
+	}
+	return "English"
+}
+
+// Helper function to replace links without duplicating code
+func replaceLink(content, oldLink, newLink string) string {
+	return strings.Replace(content, oldLink, newLink, -1)
 }
 
 // Generate GitHub Pages version
