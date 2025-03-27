@@ -2,12 +2,12 @@
 <div class="py-12 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="lg:text-center">
-            <span class="inline-block px-3 py-1 text-xs font-semibold tracking-widest text-white bg-black rounded-full">CAPABILITIES</span>
+            <span class="inline-block px-3 py-1 text-xs font-semibold tracking-widest text-white bg-black rounded-full">{{template "features.capabilities" .}}</span>
             <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-black sm:text-4xl">
-                Technical Excellence
+                {{template "features.technical_excellence" .}}
             </p>
             <p class="mt-4 max-w-2xl text-xl text-gray-800 lg:mx-auto">
-                model-renderer provides a comprehensive set of features for creating high-performance games.
+                {{template "features.description" .}}
             </p>
         </div>
 
@@ -18,23 +18,23 @@
                     <div class="flex items-center justify-center h-12 w-12 rounded-md bg-black text-white mr-4">
                         <i class="fas fa-tachometer-alt"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-black">High Performance</h3>
+                    <h3 class="text-lg font-bold text-black">{{template "features.high_performance.title" .}}</h3>
                 </div>
                 <p class="text-gray-800">
-                    Built from the ground up with performance in mind, leveraging multi-threading and SIMD optimizations.
+                    {{template "features.high_performance.desc" .}}
                 </p>
                 <ul class="mt-4 space-y-2">
                     <li class="flex items-center">
                         <i class="fas fa-check text-black mr-2"></i>
-                        <span>Task-based parallelism</span>
+                        <span>{{template "features.high_performance.item1" .}}</span>
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-check text-black mr-2"></i>
-                        <span>SIMD vector operations</span>
+                        <span>{{template "features.high_performance.item2" .}}</span>
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-check text-black mr-2"></i>
-                        <span>Data-oriented design</span>
+                        <span>{{template "features.high_performance.item3" .}}</span>
                     </li>
                 </ul>
             </div>
@@ -45,23 +45,23 @@
                     <div class="flex items-center justify-center h-12 w-12 rounded-md bg-black text-white mr-4">
                         <i class="fas fa-lightbulb"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-black">Advanced Rendering</h3>
+                    <h3 class="text-lg font-bold text-black">{{template "features.advanced_rendering.title" .}}</h3>
                 </div>
                 <p class="text-gray-800">
-                    Modern Vulkan-based rendering pipeline with physically-based materials and lighting.
+                    {{template "features.advanced_rendering.desc" .}}
                 </p>
                 <ul class="mt-4 space-y-2">
                     <li class="flex items-center">
                         <i class="fas fa-check text-black mr-2"></i>
-                        <span>PBR materials</span>
+                        <span>{{template "features.advanced_rendering.item1" .}}</span>
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-check text-black mr-2"></i>
-                        <span>Ray-traced reflections</span>
+                        <span>{{template "features.advanced_rendering.item2" .}}</span>
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-check text-black mr-2"></i>
-                        <span>Post-processing effects</span>
+                        <span>{{template "features.advanced_rendering.item3" .}}</span>
                     </li>
                 </ul>
             </div>
@@ -72,23 +72,23 @@
                     <div class="flex items-center justify-center h-12 w-12 rounded-md bg-black text-white mr-4">
                         <i class="fas fa-cubes"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-black">Modular Architecture</h3>
+                    <h3 class="text-lg font-bold text-black">{{template "features.modular_architecture.title" .}}</h3>
                 </div>
                 <p class="text-gray-800">
-                    A set of independent modules that can be used together or separately in your projects.
+                    {{template "features.modular_architecture.desc" .}}
                 </p>
                 <ul class="mt-4 space-y-2">
                     <li class="flex items-center">
                         <i class="fas fa-check text-black mr-2"></i>
-                        <span>Loosely coupled design</span>
+                        <span>{{template "features.modular_architecture.item1" .}}</span>
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-check text-black mr-2"></i>
-                        <span>Minimal dependencies</span>
+                        <span>{{template "features.modular_architecture.item2" .}}</span>
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-check text-black mr-2"></i>
-                        <span>Clean API boundaries</span>
+                        <span>{{template "features.modular_architecture.item3" .}}</span>
                     </li>
                 </ul>
             </div>
@@ -99,23 +99,23 @@
                     <div class="flex items-center justify-center h-12 w-12 rounded-md bg-black text-white mr-4">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-black">Cross-platform</h3>
+                    <h3 class="text-lg font-bold text-black">{{template "features.cross_platform.title" .}}</h3>
                 </div>
                 <p class="text-gray-800">
-                    Support for multiple platforms with consistent behavior and performance.
+                    {{template "features.cross_platform.desc" .}}
                 </p>
                 <ul class="mt-4 space-y-2">
                     <li class="flex items-center">
                         <i class="fas fa-check text-black mr-2"></i>
-                        <span>Windows, macOS, Linux</span>
+                        <span>{{template "features.cross_platform.item1" .}}</span>
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-check text-black mr-2"></i>
-                        <span>iOS and Android</span>
+                        <span>{{template "features.cross_platform.item2" .}}</span>
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-check text-black mr-2"></i>
-                        <span>Console platforms</span>
+                        <span>{{template "features.cross_platform.item3" .}}</span>
                     </li>
                 </ul>
             </div>
@@ -126,23 +126,23 @@
                     <div class="flex items-center justify-center h-12 w-12 rounded-md bg-black text-white mr-4">
                         <i class="fas fa-code"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-black">Modern C++</h3>
+                    <h3 class="text-lg font-bold text-black">{{template "features.modern_cpp.title" .}}</h3>
                 </div>
                 <p class="text-gray-800">
-                    Built with C++23, taking advantage of the latest language features for safety and performance.
+                    {{template "features.modern_cpp.desc" .}}
                 </p>
                 <ul class="mt-4 space-y-2">
                     <li class="flex items-center">
                         <i class="fas fa-check text-black mr-2"></i>
-                        <span>Type safety</span>
+                        <span>{{template "features.modern_cpp.item1" .}}</span>
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-check text-black mr-2"></i>
-                        <span>Compile-time evaluation</span>
+                        <span>{{template "features.modern_cpp.item2" .}}</span>
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-check text-black mr-2"></i>
-                        <span>Clean, readable code</span>
+                        <span>{{template "features.modern_cpp.item3" .}}</span>
                     </li>
                 </ul>
             </div>
@@ -153,32 +153,32 @@
                     <div class="flex items-center justify-center h-12 w-12 rounded-md bg-black text-white mr-4">
                         <i class="fas fa-tools"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-black">Developer Tools</h3>
+                    <h3 class="text-lg font-bold text-black">{{template "features.developer_tools.title" .}}</h3>
                 </div>
                 <p class="text-gray-800">
-                    Comprehensive tooling for asset management, debugging, and profiling.
+                    {{template "features.developer_tools.desc" .}}
                 </p>
                 <ul class="mt-4 space-y-2">
                     <li class="flex items-center">
                         <i class="fas fa-check text-black mr-2"></i>
-                        <span>Asset pipeline</span>
+                        <span>{{template "features.developer_tools.item1" .}}</span>
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-check text-black mr-2"></i>
-                        <span>Performance profiling</span>
+                        <span>{{template "features.developer_tools.item2" .}}</span>
                     </li>
                     <li class="flex items-center">
                         <i class="fas fa-check text-black mr-2"></i>
-                        <span>Memory debugging</span>
+                        <span>{{template "features.developer_tools.item3" .}}</span>
                     </li>
                 </ul>
             </div>
         </div>
 
         <div class="mt-16 text-center">
-            <p class="text-xl font-bold text-black mb-6">Ready to start building with model-renderer?</p>
+            <p class="text-xl font-bold text-black mb-6">{{template "features.ready_to_start" .}}</p>
             <a href="/download" class="high-contrast-btn inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm">
-                Get Started <i class="fas fa-arrow-right ml-2"></i>
+                {{template "features.get_started" .}} <i class="fas fa-arrow-right ml-2"></i>
             </a>
         </div>
     </div>

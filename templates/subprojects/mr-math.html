@@ -3,16 +3,16 @@
     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div class="lg:text-center mb-12">
             <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-black text-white">
-                Module
+                {{template "module.module" .}}
             </span>
             <h2 class="mt-4 text-4xl font-extrabold tracking-tight text-black sm:text-5xl">
                 mr-math
             </h2>
             <p class="mt-4 max-w-2xl text-xl text-gray-700 lg:mx-auto">
-                A lightweight and high-performance linear algebra library for 3D graphics
+                {{template "module.mr_math.subtitle" .}}
             </p>
             <a href="https://github.com/4j-company/mr-math" class="mt-4 inline-flex items-center px-3 py-2 text-sm font-medium rounded-md text-white bg-black hover:bg-gray-800">
-                <i class="fab fa-github mr-2"></i> View on GitHub
+                <i class="fab fa-github mr-2"></i> {{template "module.view_github" .}}
             </a>
         </div>
 
@@ -20,76 +20,76 @@
             <div class="space-y-10">
                 <div class="prose prose-lg mx-auto">
                     <div class="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-8 mb-8 border border-gray-200">
-                        <h3 class="text-2xl font-bold text-black mb-4 !mt-0">Overview</h3>
+                        <h3 class="text-2xl font-bold text-black mb-4 !mt-0">{{template "module.overview" .}}</h3>
                         <p class="text-lg text-gray-800 leading-relaxed">
-                            mr-math is a modern C++23 linear algebra library specifically designed for 3D graphics and game development. It provides a comprehensive set of mathematical operations with a focus on performance and ease of use.
+                            {{template "module.mr_math.overview" .}}
                         </p>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                         <div class="high-contrast-card rounded-xl p-6">
-                            <h4 class="text-lg font-semibold text-black mb-4 !mt-0">Core Features</h4>
+                            <h4 class="text-lg font-semibold text-black mb-4 !mt-0">{{template "module.core_features" .}}</h4>
                             <ul class="space-y-3">
                                 <li class="flex items-start space-x-3">
                                     <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
                                         <i class="fas fa-check text-white text-sm"></i>
                                     </span>
-                                    <span class="text-gray-800">Cross-platform support</span>
+                                    <span class="text-gray-800">{{template "module.mr_math.feature1" .}}</span>
                                 </li>
                                 <li class="flex items-start space-x-3">
                                     <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
                                         <i class="fas fa-check text-white text-sm"></i>
                                     </span>
-                                    <span class="text-gray-800">Modern C++23 compatibility</span>
+                                    <span class="text-gray-800">{{template "module.mr_math.feature2" .}}</span>
                                 </li>
                                 <li class="flex items-start space-x-3">
                                     <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
                                         <i class="fas fa-check text-white text-sm"></i>
                                     </span>
-                                    <span class="text-gray-800">Type-safe operations</span>
+                                    <span class="text-gray-800">{{template "module.mr_math.feature3" .}}</span>
                                 </li>
                                 <li class="flex items-start space-x-3">
                                     <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
                                         <i class="fas fa-check text-white text-sm"></i>
                                     </span>
-                                    <span class="text-gray-800">SIMD optimizations</span>
+                                    <span class="text-gray-800">{{template "module.mr_math.feature4" .}}</span>
                                 </li>
                             </ul>
                         </div>
 
                         <div class="high-contrast-card rounded-xl p-6">
-                            <h4 class="text-lg font-semibold text-black mb-4 !mt-0">Mathematical Operations</h4>
+                            <h4 class="text-lg font-semibold text-black mb-4 !mt-0">{{template "module.mr_math.operations_title" .}}</h4>
                             <ul class="space-y-3">
                                 <li class="flex items-start space-x-3">
                                     <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
                                         <i class="fas fa-calculator text-white text-sm"></i>
                                     </span>
-                                    <span class="text-gray-800">Vector and matrix operations</span>
+                                    <span class="text-gray-800">{{template "module.mr_math.operation1" .}}</span>
                                 </li>
                                 <li class="flex items-start space-x-3">
                                     <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
                                         <i class="fas fa-calculator text-white text-sm"></i>
                                     </span>
-                                    <span class="text-gray-800">Quaternion support</span>
+                                    <span class="text-gray-800">{{template "module.mr_math.operation2" .}}</span>
                                 </li>
                                 <li class="flex items-start space-x-3">
                                     <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
                                         <i class="fas fa-calculator text-white text-sm"></i>
                                     </span>
-                                    <span class="text-gray-800">Geometric primitives</span>
+                                    <span class="text-gray-800">{{template "module.mr_math.operation3" .}}</span>
                                 </li>
                                 <li class="flex items-start space-x-3">
                                     <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
                                         <i class="fas fa-calculator text-white text-sm"></i>
                                     </span>
-                                    <span class="text-gray-800">Interpolation functions</span>
+                                    <span class="text-gray-800">{{template "module.mr_math.operation4" .}}</span>
                                 </li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8">
-                        <h4 class="text-lg font-semibold text-black mb-4 !mt-0">Performance</h4>
+                        <h4 class="text-lg font-semibold text-black mb-4 !mt-0">{{template "module.mr_math.performance_title" .}}</h4>
                         <div class="bg-gray-900 rounded-lg p-4">
                             <pre class="language-cpp"><code class="language-cpp">// Example of optimized vector operations
 vec3 position = {1.0f, 2.0f, 3.0f};
@@ -109,9 +109,9 @@ position += velocity * deltaTime;</code></pre>
                                 </div>
                             </div>
                             <div class="pro-tip-content" style="position: relative; z-index: 5;">
-                                <h3 class="text-lg font-semibold text-black !mt-0 !mb-2" style="position: relative; z-index: 10; display: block;">Pro Tip</h3>
+                                <h3 class="text-lg font-semibold text-black !mt-0 !mb-2" style="position: relative; z-index: 10; display: block;">{{template "module.pro_tip" .}}</h3>
                                 <p class="mt-2 text-gray-800">
-                                    mr-math's SIMD optimizations provide significant performance improvements for vector operations, making it ideal for real-time graphics applications.
+                                    {{template "module.mr_math.pro_tip" .}}
                                 </p>
                             </div>
                         </div>

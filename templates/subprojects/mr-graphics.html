@@ -3,16 +3,16 @@
     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div class="lg:text-center mb-12">
             <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-black text-white">
-                Module
+                {{template "module.module" .}}
             </span>
             <h2 class="mt-4 text-4xl font-extrabold tracking-tight text-black sm:text-5xl">
                 mr-graphics
             </h2>
             <p class="mt-4 max-w-2xl text-xl text-gray-700 lg:mx-auto">
-                A high-performance Vulkan rendering library for modern 3D graphics
+                {{template "module.mr_graphics.subtitle" .}}
             </p>
             <a href="https://github.com/4j-company/mr-graphics" class="mt-4 inline-flex items-center px-3 py-2 text-sm font-medium rounded-md text-white bg-black hover:bg-gray-800">
-                <i class="fab fa-github mr-2"></i> View on GitHub
+                <i class="fab fa-github mr-2"></i> {{template "module.view_github" .}}
             </a>
         </div>
 
@@ -20,107 +20,104 @@
             <div class="space-y-10">
                 <div class="prose prose-lg mx-auto">
                     <div class="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-8 mb-8 border border-gray-200">
-                        <h3 class="text-2xl font-bold text-black mb-4 !mt-0">Overview</h3>
+                        <h3 class="text-2xl font-bold text-black mb-4 !mt-0">{{template "module.overview" .}}</h3>
                         <p class="text-lg text-gray-800 leading-relaxed">
-                            mr-graphics is the core rendering engine of the model-renderer suite, providing a 
-                            modern, high-performance graphics API built on Vulkan. It handles everything from 
-                            low-level GPU resource management to high-level scene rendering, enabling developers 
-                            to create visually stunning applications with optimal performance.
+                            {{template "module.mr_graphics.overview" .}}
                         </p>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                         <div class="high-contrast-card rounded-xl p-6">
-                            <h4 class="text-lg font-semibold text-black mb-4 !mt-0">Core Features</h4>
+                            <h4 class="text-lg font-semibold text-black mb-4 !mt-0">{{template "module.core_features" .}}</h4>
                             <ul class="space-y-3">
                                 <li class="flex items-start space-x-3">
                                     <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
                                         <i class="fas fa-bolt text-white text-sm"></i>
                                     </span>
-                                    <span class="text-gray-800">Full Vulkan 1.3 integration</span>
+                                    <span class="text-gray-800">{{template "module.mr_graphics.feature1" .}}</span>
                                 </li>
                                 <li class="flex items-start space-x-3">
                                     <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
                                         <i class="fas fa-microchip text-white text-sm"></i>
                                     </span>
-                                    <span class="text-gray-800">Multi-threaded rendering architecture</span>
+                                    <span class="text-gray-800">{{template "module.mr_graphics.feature2" .}}</span>
                                 </li>
                                 <li class="flex items-start space-x-3">
                                     <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
                                         <i class="fas fa-layer-group text-white text-sm"></i>
                                     </span>
-                                    <span class="text-gray-800">Optimized render graph system</span>
+                                    <span class="text-gray-800">{{template "module.mr_graphics.feature3" .}}</span>
                                 </li>
                                 <li class="flex items-start space-x-3">
                                     <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
                                         <i class="fas fa-memory text-white text-sm"></i>
                                     </span>
-                                    <span class="text-gray-800">Advanced GPU memory management</span>
+                                    <span class="text-gray-800">{{template "module.mr_graphics.feature4" .}}</span>
                                 </li>
                             </ul>
                         </div>
 
                         <div class="high-contrast-card rounded-xl p-6">
-                            <h4 class="text-lg font-semibold text-black mb-4 !mt-0">Rendering Capabilities</h4>
+                            <h4 class="text-lg font-semibold text-black mb-4 !mt-0">{{template "module.rendering_capabilities" .}}</h4>
                             <ul class="space-y-3">
                                 <li class="flex items-start space-x-3">
                                     <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
                                         <i class="fas fa-lightbulb text-white text-sm"></i>
                                     </span>
-                                    <span class="text-gray-800">Physically-based rendering (PBR)</span>
+                                    <span class="text-gray-800">{{template "module.mr_graphics.capability1" .}}</span>
                                 </li>
                                 <li class="flex items-start space-x-3">
                                     <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
                                         <i class="fas fa-sun text-white text-sm"></i>
                                     </span>
-                                    <span class="text-gray-800">Real-time global illumination</span>
+                                    <span class="text-gray-800">{{template "module.mr_graphics.capability2" .}}</span>
                                 </li>
                                 <li class="flex items-start space-x-3">
                                     <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
                                         <i class="fas fa-tint text-white text-sm"></i>
                                     </span>
-                                    <span class="text-gray-800">Volumetric lighting and fog</span>
+                                    <span class="text-gray-800">{{template "module.mr_graphics.capability3" .}}</span>
                                 </li>
                                 <li class="flex items-start space-x-3">
                                     <span class="flex-shrink-0 h-6 w-6 rounded-full bg-black flex items-center justify-center">
                                         <i class="fas fa-magic text-white text-sm"></i>
                                     </span>
-                                    <span class="text-gray-800">Advanced post-processing effects</span>
+                                    <span class="text-gray-800">{{template "module.mr_graphics.capability4" .}}</span>
                                 </li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8">
-                        <h4 class="text-lg font-semibold text-black mb-4 !mt-0">Technical Specifications</h4>
+                        <h4 class="text-lg font-semibold text-black mb-4 !mt-0">{{template "module.technical_specs" .}}</h4>
                         <div class="overflow-x-auto">
                             <table class="min-w-full divide-y divide-gray-200">
                                 <thead>
                                     <tr>
-                                        <th class="px-4 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Feature</th>
-                                        <th class="px-4 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Specification</th>
+                                        <th class="px-4 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{template "module.feature" .}}</th>
+                                        <th class="px-4 py-3 bg-gray-100 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{template "module.specification" .}}</th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
                                     <tr>
-                                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">Graphics API</td>
-                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">Vulkan 1.3</td>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">{{template "module.mr_graphics.spec1.name" .}}</td>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">{{template "module.mr_graphics.spec1.value" .}}</td>
                                     </tr>
                                     <tr>
-                                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">Shader Language</td>
-                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">GLSL, HLSL (with internal converter)</td>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">{{template "module.mr_graphics.spec2.name" .}}</td>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">{{template "module.mr_graphics.spec2.value" .}}</td>
                                     </tr>
                                     <tr>
-                                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">Memory Management</td>
-                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">Custom pool allocator with defragmentation</td>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">{{template "module.mr_graphics.spec3.name" .}}</td>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">{{template "module.mr_graphics.spec3.value" .}}</td>
                                     </tr>
                                     <tr>
-                                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">Ray Tracing</td>
-                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">VK_KHR_ray_tracing_pipeline</td>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">{{template "module.mr_graphics.spec4.name" .}}</td>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">{{template "module.mr_graphics.spec4.value" .}}</td>
                                     </tr>
                                     <tr>
-                                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">Mesh Shading</td>
-                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">VK_EXT_mesh_shader</td>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">{{template "module.mr_graphics.spec5.name" .}}</td>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700">{{template "module.mr_graphics.spec5.value" .}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -128,7 +125,7 @@
                     </div>
 
                     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8">
-                        <h4 class="text-lg font-semibold text-black mb-4 !mt-0">Example Usage</h4>
+                        <h4 class="text-lg font-semibold text-black mb-4 !mt-0">{{template "module.example_usage" .}}</h4>
                         <div class="bg-gray-900 rounded-lg p-4">
                             <pre class="language-cpp"><code class="language-cpp">// Initialize the graphics context
 mr::graphics::Context context;
@@ -177,9 +174,9 @@ while (window.isOpen()) {
                                 </div>
                             </div>
                             <div class="pro-tip-content" style="position: relative; z-index: 5;">
-                                <h3 class="text-lg font-semibold text-black !mt-0 !mb-2" style="position: relative; z-index: 10; display: block;">Pro Tip</h3>
+                                <h3 class="text-lg font-semibold text-black !mt-0 !mb-2" style="position: relative; z-index: 10; display: block;">{{template "module.pro_tip" .}}</h3>
                                 <p class="mt-2 text-gray-800">
-                                    For optimal performance, group your draw calls by material and use the render graph to minimize pipeline state changes. This can dramatically improve throughput on modern GPUs.
+                                    {{template "module.mr_graphics.pro_tip" .}}
                                 </p>
                             </div>
                         </div>

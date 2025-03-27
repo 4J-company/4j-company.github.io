@@ -1,0 +1,168 @@
+{{define "translations"}}{{end}}
+
+{{/* Navigation */}}
+{{define "nav.home"}}{{if eq .Lang "ru"}}Главная{{else}}Home{{end}}{{end}}
+{{define "nav.features"}}{{if eq .Lang "ru"}}Возможности{{else}}Features{{end}}{{end}}
+{{define "nav.examples"}}{{if eq .Lang "ru"}}Примеры{{else}}Examples{{end}}{{end}}
+{{define "nav.docs"}}{{if eq .Lang "ru"}}Документация{{else}}Documentation{{end}}{{end}}
+{{define "nav.download"}}{{if eq .Lang "ru"}}Скачать{{else}}Download{{end}}{{end}}
+{{define "nav.modules"}}{{if eq .Lang "ru"}}Модули{{else}}Modules{{end}}{{end}}
+{{define "nav.github"}}{{if eq .Lang "ru"}}GitHub{{else}}GitHub{{end}}{{end}}
+{{define "nav.switch_lang"}}{{if eq .Lang "ru"}}English{{else}}Русский{{end}}{{end}}
+
+{{/* Home Page */}}
+{{define "home.title"}}{{if eq .Lang "ru"}}model-renderer{{else}}model-renderer{{end}}{{end}}
+{{define "home.subtitle"}}{{if eq .Lang "ru"}}Современный модульный движок для разработки игр, сочетающий высокую производительность с гибкостью архитектуры.{{else}}A modern modular game engine combining high performance with architectural flexibility.{{end}}{{end}}
+{{define "home.get_started"}}{{if eq .Lang "ru"}}Начать{{else}}Get Started{{end}}{{end}}
+{{define "home.docs"}}{{if eq .Lang "ru"}}Документация{{else}}Documentation{{end}}{{end}}
+{{define "home.modules"}}{{if eq .Lang "ru"}}МОДУЛИ{{else}}MODULES{{end}}{{end}}
+{{define "home.modules.title"}}{{if eq .Lang "ru"}}Модульная экосистема{{else}}A Modular Ecosystem{{end}}{{end}}
+{{define "home.modules.subtitle"}}{{if eq .Lang "ru"}}model-renderer состоит из специализированных модулей, которые могут использоваться вместе или отдельно в вашем проекте.{{else}}model-renderer consists of specialized modules that can be used together or independently in your project.{{end}}{{end}}
+{{define "home.modular_design"}}{{if eq .Lang "ru"}}МОДУЛЬНЫЙ ДИЗАЙН{{else}}MODULAR DESIGN{{end}}{{end}}
+{{define "home.learn_more"}}{{if eq .Lang "ru"}}Узнать больше{{else}}Learn more{{end}}{{end}}
+{{define "home.showcase"}}{{if eq .Lang "ru"}}ДЕМОНСТРАЦИЯ{{else}}SHOWCASE{{end}}{{end}}
+{{define "home.see_whats_possible"}}{{if eq .Lang "ru"}}Увидеть возможности{{else}}See What's Possible{{end}}{{end}}
+{{define "home.view_examples"}}{{if eq .Lang "ru"}}Посмотреть примеры{{else}}View Examples{{end}}{{end}}
+
+{{/* Features Page */}}
+{{define "features.capabilities"}}{{if eq .Lang "ru"}}ВОЗМОЖНОСТИ{{else}}CAPABILITIES{{end}}{{end}}
+{{define "features.technical_excellence"}}{{if eq .Lang "ru"}}Техническое совершенство{{else}}Technical Excellence{{end}}{{end}}
+{{define "features.description"}}{{if eq .Lang "ru"}}model-renderer предоставляет полный набор функций для создания высокопроизводительных игр.{{else}}model-renderer provides a comprehensive set of features for creating high-performance games.{{end}}{{end}}
+{{define "features.high_performance.title"}}{{if eq .Lang "ru"}}Высокая производительность{{else}}High Performance{{end}}{{end}}
+{{define "features.high_performance.desc"}}{{if eq .Lang "ru"}}Создан с нуля с учетом производительности, используя многопоточность и SIMD-оптимизации.{{else}}Built from the ground up with performance in mind, leveraging multi-threading and SIMD optimizations.{{end}}{{end}}
+{{define "features.high_performance.item1"}}{{if eq .Lang "ru"}}Многозадачный параллелизм{{else}}Task-based parallelism{{end}}{{end}}
+{{define "features.high_performance.item2"}}{{if eq .Lang "ru"}}SIMD векторные операции{{else}}SIMD vector operations{{end}}{{end}}
+{{define "features.high_performance.item3"}}{{if eq .Lang "ru"}}Дизайн, ориентированный на данные{{else}}Data-oriented design{{end}}{{end}}
+{{define "features.advanced_rendering.title"}}{{if eq .Lang "ru"}}Продвинутый рендеринг{{else}}Advanced Rendering{{end}}{{end}}
+{{define "features.advanced_rendering.desc"}}{{if eq .Lang "ru"}}Современный конвейер рендеринга на основе Vulkan с физически обоснованными материалами и освещением.{{else}}Modern Vulkan-based rendering pipeline with physically-based materials and lighting.{{end}}{{end}}
+{{define "features.advanced_rendering.item1"}}{{if eq .Lang "ru"}}PBR материалы{{else}}PBR materials{{end}}{{end}}
+{{define "features.advanced_rendering.item2"}}{{if eq .Lang "ru"}}Трассировка лучей для отражений{{else}}Ray-traced reflections{{end}}{{end}}
+{{define "features.advanced_rendering.item3"}}{{if eq .Lang "ru"}}Эффекты постобработки{{else}}Post-processing effects{{end}}{{end}}
+{{define "features.modular_architecture.title"}}{{if eq .Lang "ru"}}Модульная архитектура{{else}}Modular Architecture{{end}}{{end}}
+{{define "features.modular_architecture.desc"}}{{if eq .Lang "ru"}}Набор независимых модулей, которые можно использовать вместе или по отдельности в ваших проектах.{{else}}A set of independent modules that can be used together or separately in your projects.{{end}}{{end}}
+{{define "features.modular_architecture.item1"}}{{if eq .Lang "ru"}}Слабо связанный дизайн{{else}}Loosely coupled design{{end}}{{end}}
+{{define "features.modular_architecture.item2"}}{{if eq .Lang "ru"}}Минимальные зависимости{{else}}Minimal dependencies{{end}}{{end}}
+{{define "features.modular_architecture.item3"}}{{if eq .Lang "ru"}}Чёткие API границы{{else}}Clean API boundaries{{end}}{{end}}
+{{define "features.cross_platform.title"}}{{if eq .Lang "ru"}}Кросс-платформенность{{else}}Cross-platform{{end}}{{end}}
+{{define "features.cross_platform.desc"}}{{if eq .Lang "ru"}}Поддержка нескольких платформ с согласованным поведением и производительностью.{{else}}Support for multiple platforms with consistent behavior and performance.{{end}}{{end}}
+{{define "features.cross_platform.item1"}}{{if eq .Lang "ru"}}Windows, macOS, Linux{{else}}Windows, macOS, Linux{{end}}{{end}}
+{{define "features.cross_platform.item2"}}{{if eq .Lang "ru"}}iOS и Android{{else}}iOS and Android{{end}}{{end}}
+{{define "features.cross_platform.item3"}}{{if eq .Lang "ru"}}Консольные платформы{{else}}Console platforms{{end}}{{end}}
+{{define "features.modern_cpp.title"}}{{if eq .Lang "ru"}}Современный C++{{else}}Modern C++{{end}}{{end}}
+{{define "features.modern_cpp.desc"}}{{if eq .Lang "ru"}}Построен на C++23, используя последние возможности языка для безопасности и производительности.{{else}}Built with C++23, taking advantage of the latest language features for safety and performance.{{end}}{{end}}
+{{define "features.modern_cpp.item1"}}{{if eq .Lang "ru"}}Типобезопасность{{else}}Type safety{{end}}{{end}}
+{{define "features.modern_cpp.item2"}}{{if eq .Lang "ru"}}Вычисления на этапе компиляции{{else}}Compile-time evaluation{{end}}{{end}}
+{{define "features.modern_cpp.item3"}}{{if eq .Lang "ru"}}Чистый, читаемый код{{else}}Clean, readable code{{end}}{{end}}
+{{define "features.developer_tools.title"}}{{if eq .Lang "ru"}}Инструменты разработчика{{else}}Developer Tools{{end}}{{end}}
+{{define "features.developer_tools.desc"}}{{if eq .Lang "ru"}}Комплексные инструменты для управления ресурсами, отладки и профилирования.{{else}}Comprehensive tooling for asset management, debugging, and profiling.{{end}}{{end}}
+{{define "features.developer_tools.item1"}}{{if eq .Lang "ru"}}Конвейер ресурсов{{else}}Asset pipeline{{end}}{{end}}
+{{define "features.developer_tools.item2"}}{{if eq .Lang "ru"}}Профилирование производительности{{else}}Performance profiling{{end}}{{end}}
+{{define "features.developer_tools.item3"}}{{if eq .Lang "ru"}}Отладка памяти{{else}}Memory debugging{{end}}{{end}}
+{{define "features.ready_to_start"}}{{if eq .Lang "ru"}}Готовы начать разработку с model-renderer?{{else}}Ready to start building with model-renderer?{{end}}{{end}}
+{{define "features.get_started"}}{{if eq .Lang "ru"}}Начать{{else}}Get Started{{end}}{{end}}
+
+{{/* Examples Page */}}
+{{define "examples.wip_title"}}{{if eq .Lang "ru"}}В разработке{{else}}Work in Progress{{end}}{{end}}
+{{define "examples.wip_message"}}{{if eq .Lang "ru"}}Мы в настоящее время разрабатываем интересные примеры, демонстрирующие возможности нашего движка. Вернитесь в ближайшее время, чтобы увидеть наш прогресс!{{else}}We're currently developing exciting examples to showcase the capabilities of our engine. Check back soon to see our progress!{{end}}{{end}}
+{{define "examples.return_home"}}{{if eq .Lang "ru"}}Вернуться на главную{{else}}Return to Home{{end}}{{end}}
+
+{{/* Module Common Terms */}}
+{{define "module.module"}}{{if eq .Lang "ru"}}Модуль{{else}}Module{{end}}{{end}}
+{{define "module.overview"}}{{if eq .Lang "ru"}}Обзор{{else}}Overview{{end}}{{end}}
+{{define "module.core_features"}}{{if eq .Lang "ru"}}Основные возможности{{else}}Core Features{{end}}{{end}}
+{{define "module.view_github"}}{{if eq .Lang "ru"}}Смотреть на GitHub{{else}}View on GitHub{{end}}{{end}}
+{{define "module.rendering_capabilities"}}{{if eq .Lang "ru"}}Возможности рендеринга{{else}}Rendering Capabilities{{end}}{{end}}
+{{define "module.technical_specs"}}{{if eq .Lang "ru"}}Технические характеристики{{else}}Technical Specifications{{end}}{{end}}
+{{define "module.example_usage"}}{{if eq .Lang "ru"}}Пример использования{{else}}Example Usage{{end}}{{end}}
+{{define "module.pro_tip"}}{{if eq .Lang "ru"}}Совет профессионала{{else}}Pro Tip{{end}}{{end}}
+{{define "module.feature"}}{{if eq .Lang "ru"}}Характеристика{{else}}Feature{{end}}{{end}}
+{{define "module.specification"}}{{if eq .Lang "ru"}}Спецификация{{else}}Specification{{end}}{{end}}
+{{define "module.dependencies"}}{{if eq .Lang "ru"}}Зависимости{{else}}Dependencies{{end}}{{end}}
+
+{{/* Module Descriptions */}}
+{{define "module.mr_graphics.desc"}}{{if eq .Lang "ru"}}Мощный движок рендеринга с поддержкой современных техник освещения и материалов{{else}}Powerful rendering engine with support for modern lighting and material techniques{{end}}{{end}}
+{{define "module.mr_graphics.subtitle"}}{{if eq .Lang "ru"}}Современная графическая библиотека для реалистичного 3D-рендеринга{{else}}Modern graphics library for realistic 3D rendering{{end}}{{end}}
+{{define "module.mr_graphics.overview"}}{{if eq .Lang "ru"}}mr-graphics — это современный движок рендеринга, предназначенный для высокопроизводительной визуализации 3D-моделей. Он поддерживает физически корректное освещение, продвинутые материалы и оптимизирован для высокой производительности.{{else}}mr-graphics is a modern rendering engine designed for high-performance visualization of 3D models. It supports physically-based lighting, advanced materials, and is optimized for high performance.{{end}}{{end}}
+{{define "module.mr_graphics.feature1"}}{{if eq .Lang "ru"}}Поддержка физически корректного рендеринга (PBR) для реалистичных материалов{{else}}Support for Physically Based Rendering (PBR) for realistic materials{{end}}{{end}}
+{{define "module.mr_graphics.feature2"}}{{if eq .Lang "ru"}}Оптимизированный конвейер рендеринга с поддержкой инстансинга{{else}}Optimized rendering pipeline with instancing support{{end}}{{end}}
+{{define "module.mr_graphics.feature3"}}{{if eq .Lang "ru"}}Гибкая система шейдеров с возможностью горячей перезагрузки{{else}}Flexible shader system with hot-reloading capabilities{{end}}{{end}}
+{{define "module.mr_graphics.feature4"}}{{if eq .Lang "ru"}}Интегрированная система постобработки{{else}}Integrated post-processing system{{end}}{{end}}
+{{define "module.mr_graphics.capability1"}}{{if eq .Lang "ru"}}Реалистичная система освещения с поддержкой различных источников света{{else}}Realistic lighting system with support for various light sources{{end}}{{end}}
+{{define "module.mr_graphics.capability2"}}{{if eq .Lang "ru"}}Продвинутая система материалов с поддержкой прозрачности и отражений{{else}}Advanced material system with support for transparency and reflections{{end}}{{end}}
+{{define "module.mr_graphics.capability3"}}{{if eq .Lang "ru"}}Высококачественные эффекты постобработки, включая SSAO и bloom{{else}}High-quality post-processing effects, including SSAO and bloom{{end}}{{end}}
+{{define "module.mr_graphics.capability4"}}{{if eq .Lang "ru"}}Поддержка различных типов теней, от базовых до каскадных карт теней{{else}}Support for various shadow types, from basic to cascaded shadow maps{{end}}{{end}}
+{{define "module.mr_graphics.rendering1"}}{{if eq .Lang "ru"}}Полноценная система глобального освещения для реалистичного внешнего вида{{else}}Full global illumination system for realistic appearance{{end}}{{end}}
+{{define "module.mr_graphics.rendering2"}}{{if eq .Lang "ru"}}Технологии сглаживания и сверхдискретизации для качественного изображения{{else}}Anti-aliasing and supersampling techniques for high-quality imagery{{end}}{{end}}
+{{define "module.mr_graphics.rendering3"}}{{if eq .Lang "ru"}}Системы частиц и объемный туман{{else}}Particle systems and volumetric fog{{end}}{{end}}
+{{define "module.mr_graphics.rendering4"}}{{if eq .Lang "ru"}}Расширенные эффекты тени, включая каскадные карты теней{{else}}Advanced shadow effects including cascaded shadow maps{{end}}{{end}}
+{{define "module.mr_graphics.tech_specs"}}{{if eq .Lang "ru"}}mr-graphics построен на современных графических API (Vulkan/DirectX 12/Metal) и оптимизирован для работы на различных платформах. Он поддерживает широкий спектр функций рендеринга и масштабируется от мобильных устройств до высокопроизводительных настольных ПК.{{else}}mr-graphics is built on modern graphics APIs (Vulkan/DirectX 12/Metal) and optimized to run on various platforms. It supports a wide range of rendering features and scales from mobile devices to high-performance desktop PCs.{{end}}{{end}}
+{{define "module.mr_graphics.example"}}{{if eq .Lang "ru"}}Ниже приведен пример создания простого приложения рендеринга с использованием mr-graphics. Этот код инициализирует рендерер, загружает модель и настраивает камеру для отображения модели.{{else}}Below is an example of creating a simple rendering application using mr-graphics. This code initializes the renderer, loads a model, and sets up a camera to display the model.{{end}}{{end}}
+{{define "module.mr_graphics.pro_tip"}}{{if eq .Lang "ru"}}Для достижения наилучшей производительности используйте систему инстансинга при рендеринге множества одинаковых объектов, таких как деревья или частицы. Это может значительно снизить нагрузку на GPU и улучшить частоту кадров.{{else}}For best performance, use the instancing system when rendering multiple identical objects such as trees or particles. This can significantly reduce GPU overhead and improve frame rates.{{end}}{{end}}
+{{define "module.mr_math.desc"}}{{if eq .Lang "ru"}}Высокопроизводительная математическая библиотека, оптимизированная для графики и физики{{else}}High-performance math library optimized for graphics and physics calculations{{end}}{{end}}
+{{define "module.mr_math.subtitle"}}{{if eq .Lang "ru"}}Математическая библиотека, оптимизированная для графических и физических вычислений{{else}}Math library optimized for graphics and physics computations{{end}}{{end}}
+{{define "module.mr_math.overview"}}{{if eq .Lang "ru"}}mr-math предоставляет оптимизированные математические функции, векторные и матричные операции, необходимые для трехмерной графики и физического моделирования.{{else}}mr-math provides optimized mathematical functions, vector and matrix operations essential for 3D graphics and physics simulation.{{end}}{{end}}
+{{define "module.mr_math.feature1"}}{{if eq .Lang "ru"}}Векторные и матричные операции с SIMD-оптимизациями{{else}}Vector and matrix operations with SIMD optimizations{{end}}{{end}}
+{{define "module.mr_math.feature2"}}{{if eq .Lang "ru"}}Кватернионы и преобразования Эйлера{{else}}Quaternions and Euler transformations{{end}}{{end}}
+{{define "module.mr_math.feature3"}}{{if eq .Lang "ru"}}Утилиты для работы с физикой и столкновениями{{else}}Physics and collision utilities{{end}}{{end}}
+{{define "module.mr_math.feature4"}}{{if eq .Lang "ru"}}Интерполяция и случайные числа{{else}}Interpolation and random number generation{{end}}{{end}}
+{{define "module.mr_math.pro_tip"}}{{if eq .Lang "ru"}}Для максимальной производительности используйте неизменяемые векторы (immutable) для временных расчетов и изменяемые (mutable) для постоянных объектов.{{else}}For maximum performance, use immutable vectors for temporary calculations and mutable vectors for persistent objects.{{end}}{{end}}
+{{define "module.mr_importer.desc"}}{{if eq .Lang "ru"}}Универсальная система импорта, поддерживающая множество форматов 3D-моделей и текстур{{else}}Versatile import system supporting multiple 3D model and texture formats{{end}}{{end}}
+{{define "module.mr_importer.subtitle"}}{{if eq .Lang "ru"}}Универсальная система импорта для 3D моделей и текстур{{else}}Universal import system for 3D models and textures{{end}}{{end}}
+{{define "module.mr_importer.overview"}}{{if eq .Lang "ru"}}mr-importer предоставляет унифицированный интерфейс для загрузки различных форматов 3D-моделей и текстур. Поддерживает стандартные форматы, включая OBJ, FBX, glTF, и конвертирует их в оптимизированные внутренние структуры.{{else}}mr-importer provides a unified interface for loading various 3D model and texture formats. It supports standard formats including OBJ, FBX, glTF, and converts them to optimized internal structures.{{end}}{{end}}
+{{define "module.mr_importer.dependency1"}}{{if eq .Lang "ru"}}mr-math{{else}}mr-math{{end}}{{end}}
+{{define "module.mr_importer.dependency2"}}{{if eq .Lang "ru"}}Assimp (опционально){{else}}Assimp (optional){{end}}{{end}}
+{{define "module.mr_importer.dependency3"}}{{if eq .Lang "ru"}}libpng/libjpeg{{else}}libpng/libjpeg{{end}}{{end}}
+{{define "module.mr_importer.feature1"}}{{if eq .Lang "ru"}}Поддержка популярных форматов 3D-моделей (OBJ, FBX, glTF){{else}}Support for popular 3D model formats (OBJ, FBX, glTF){{end}}{{end}}
+{{define "module.mr_importer.feature2"}}{{if eq .Lang "ru"}}Загрузка и конвертация текстур с автоматической генерацией MIP-карт{{else}}Texture loading and conversion with automatic MIP map generation{{end}}{{end}}
+{{define "module.mr_importer.feature3"}}{{if eq .Lang "ru"}}Оптимизация моделей для рендеринга в реальном времени{{else}}Model optimization for real-time rendering{{end}}{{end}}
+{{define "module.mr_importer.feature4"}}{{if eq .Lang "ru"}}Потоковая загрузка для больших ресурсов{{else}}Streaming loading for large assets{{end}}{{end}}
+{{define "module.mr_importer.pro_tip"}}{{if eq .Lang "ru"}}Используйте формат glTF для лучшей совместимости и производительности. Он обеспечивает быструю загрузку и сохраняет важные метаданные для PBR-рендеринга.{{else}}Use the glTF format for best compatibility and performance. It provides faster loading times and preserves important metadata for PBR rendering.{{end}}{{end}}
+{{define "module.mr_contractor.desc"}}{{if eq .Lang "ru"}}Система управления ресурсами и задачами, оптимизирующая многопоточное выполнение{{else}}Resource and task management system optimizing multi-threaded execution{{end}}{{end}}
+{{define "module.mr_contractor.subtitle"}}{{if eq .Lang "ru"}}Система многопоточного управления задачами и ресурсами{{else}}Multi-threaded task and resource management system{{end}}{{end}}
+{{define "module.mr_contractor.overview"}}{{if eq .Lang "ru"}}mr-contractor обеспечивает эффективное управление задачами и ресурсами, оптимизируя работу приложения на многоядерных процессорах. Он предоставляет пул потоков, планирование задач и систему зависимостей для максимальной производительности.{{else}}mr-contractor provides efficient task and resource management, optimizing application performance on multi-core processors. It offers thread pooling, task scheduling, and dependency systems for maximum performance.{{end}}{{end}}
+{{define "module.mr_contractor.feature1"}}{{if eq .Lang "ru"}}Интеллектуальное распределение задач между потоками{{else}}Intelligent task distribution across threads{{end}}{{end}}
+{{define "module.mr_contractor.feature2"}}{{if eq .Lang "ru"}}Система зависимостей для сложных рабочих процессов{{else}}Dependency system for complex workflows{{end}}{{end}}
+{{define "module.mr_contractor.feature3"}}{{if eq .Lang "ru"}}Оптимизированное управление памятью с пулингом{{else}}Optimized memory management with pooling{{end}}{{end}}
+{{define "module.mr_contractor.feature4"}}{{if eq .Lang "ru"}}Встроенные инструменты профилирования производительности{{else}}Built-in performance profiling tools{{end}}{{end}}
+{{define "module.mr_contractor.pro_tip"}}{{if eq .Lang "ru"}}Используйте систему зависимостей для сложных задач вместо ручной синхронизации. Это позволит более эффективно распределять ресурсы и избежать блокировок.{{else}}Use the dependency system for complex tasks instead of manual synchronization. This allows for more efficient resource allocation and avoids deadlocks.{{end}}{{end}}
+{{define "module.mr_graphics.spec1.name"}}{{if eq .Lang "ru"}}Графический API{{else}}Graphics API{{end}}{{end}}
+{{define "module.mr_graphics.spec1.value"}}{{if eq .Lang "ru"}}Vulkan 1.3{{else}}Vulkan 1.3{{end}}{{end}}
+{{define "module.mr_graphics.spec2.name"}}{{if eq .Lang "ru"}}Язык шейдеров{{else}}Shader Language{{end}}{{end}}
+{{define "module.mr_graphics.spec2.value"}}{{if eq .Lang "ru"}}GLSL, HLSL (с внутренним конвертером){{else}}GLSL, HLSL (with internal converter){{end}}{{end}}
+{{define "module.mr_graphics.spec3.name"}}{{if eq .Lang "ru"}}Управление памятью{{else}}Memory Management{{end}}{{end}}
+{{define "module.mr_graphics.spec3.value"}}{{if eq .Lang "ru"}}Пользовательский пулинг аллокатор с дефрагментацией{{else}}Custom pool allocator with defragmentation{{end}}{{end}}
+{{define "module.mr_graphics.spec4.name"}}{{if eq .Lang "ru"}}Трассировка лучей{{else}}Ray Tracing{{end}}{{end}}
+{{define "module.mr_graphics.spec4.value"}}{{if eq .Lang "ru"}}VK_KHR_ray_tracing_pipeline{{else}}VK_KHR_ray_tracing_pipeline{{end}}{{end}}
+{{define "module.mr_graphics.spec5.name"}}{{if eq .Lang "ru"}}Mesh Shading{{else}}Mesh Shading{{end}}{{end}}
+{{define "module.mr_graphics.spec5.value"}}{{if eq .Lang "ru"}}VK_EXT_mesh_shader{{else}}VK_EXT_mesh_shader{{end}}{{end}}
+
+{{/* Footer */}}
+{{define "footer.copyright"}}{{if eq .Lang "ru"}}© {{.Year}} model-renderer. Все права защищены.{{else}}© {{.Year}} model-renderer. All rights reserved.{{end}}{{end}}
+{{define "footer.contact"}}{{if eq .Lang "ru"}}Контакты{{else}}Contact{{end}}{{end}}
+{{define "footer.privacy"}}{{if eq .Lang "ru"}}Политика конфиденциальности{{else}}Privacy Policy{{end}}{{end}}
+{{define "footer.terms"}}{{if eq .Lang "ru"}}Условия использования{{else}}Terms of Service{{end}}{{end}}
+
+{{/* mr-math additional templates */}}
+{{define "module.mr_math.operation1"}}{{if eq .Lang "ru"}}Векторные и матричные операции{{else}}Vector and matrix operations{{end}}{{end}}
+{{define "module.mr_math.operation2"}}{{if eq .Lang "ru"}}Поддержка кватернионов{{else}}Quaternion support{{end}}{{end}}
+{{define "module.mr_math.operation3"}}{{if eq .Lang "ru"}}Геометрические примитивы{{else}}Geometric primitives{{end}}{{end}}
+{{define "module.mr_math.operation4"}}{{if eq .Lang "ru"}}Функции интерполяции{{else}}Interpolation functions{{end}}{{end}}
+{{define "module.mr_math.operations_title"}}{{if eq .Lang "ru"}}Математические операции{{else}}Mathematical Operations{{end}}{{end}}
+{{define "module.mr_math.performance_title"}}{{if eq .Lang "ru"}}Производительность{{else}}Performance{{end}}{{end}}
+
+{{/* mr-importer additional templates */}}
+{{define "module.mr_importer.optimization1"}}{{if eq .Lang "ru"}}Извлечение данных без копирования{{else}}Zero-copy data extraction{{end}}{{end}}
+{{define "module.mr_importer.optimization2"}}{{if eq .Lang "ru"}}Умное управление буферами{{else}}Smart buffer management{{end}}{{end}}
+{{define "module.mr_importer.optimization3"}}{{if eq .Lang "ru"}}Адаптивная оптимизация мешей{{else}}Adaptive mesh optimization{{end}}{{end}}
+{{define "module.mr_importer.optimization4"}}{{if eq .Lang "ru"}}Динамическое планирование задач{{else}}Dynamic task scheduling{{end}}{{end}}
+{{define "module.mr_importer.roadmap_title"}}{{if eq .Lang "ru"}}Дорожная карта функций{{else}}Feature Roadmap{{end}}{{end}}
+{{define "module.mr_importer.roadmap1"}}{{if eq .Lang "ru"}}Загрузка текстур с семплерами{{else}}Texture loading with samplers{{end}}{{end}}
+{{define "module.mr_importer.roadmap2"}}{{if eq .Lang "ru"}}Интеграция с системой материалов{{else}}Material system integration{{end}}{{end}}
+{{define "module.mr_importer.optimizations_title"}}{{if eq .Lang "ru"}}Оптимизации производительности{{else}}Performance Optimizations{{end}}{{end}}
+
+{{/* mr-contractor additional templates */}}
+{{define "module.mr_contractor.advanced_title"}}{{if eq .Lang "ru"}}Расширенные функции{{else}}Advanced Features{{end}}{{end}}
+{{define "module.mr_contractor.advanced1"}}{{if eq .Lang "ru"}}Поддержка вложенных рабочих процессов{{else}}Nested workflow support{{end}}{{end}}
+{{define "module.mr_contractor.advanced2"}}{{if eq .Lang "ru"}}Условное выполнение задач{{else}}Conditional task execution{{end}}{{end}}
+{{define "module.mr_contractor.advanced3"}}{{if eq .Lang "ru"}}Отмена и очистка задач{{else}}Task cancellation and cleanup{{end}}{{end}}
+{{define "module.mr_contractor.advanced4"}}{{if eq .Lang "ru"}}Мониторинг и отчетность о прогрессе{{else}}Progress monitoring and reporting{{end}}{{end}} 

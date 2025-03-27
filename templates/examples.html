@@ -86,10 +86,10 @@
 <div class="wip-container">
     <span class="module-badge">model-renderer</span>
     <i class="fas fa-tools wip-icon"></i>
-    <h1 class="wip-title">Work in Progress</h1>
-    <p class="wip-message">We're currently developing exciting examples to showcase the capabilities of our engine. Check back soon to see our progress!</p>
+    <h1 class="wip-title">{{template "examples.wip_title" .}}</h1>
+    <p class="wip-message">{{template "examples.wip_message" .}}</p>
     <a href="/" class="high-contrast-btn">
-        Return to Home <i class="fas fa-arrow-right ml-2"></i>
+        {{template "examples.return_home" .}} <i class="fas fa-arrow-right ml-2"></i>
     </a>
 </div>
 
